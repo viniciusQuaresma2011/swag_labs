@@ -2,7 +2,6 @@
 Documentation       Testando o Carrinho de compras
 
 
-Library    Selenium2Library
 Resource    ../../steps/Produtos/ProdutosSteps.robot
 Resource    ../../steps/Login/LoginSteps.robot
 Resource    ../../steps/Carrinho/CarrinhoSteps.robot

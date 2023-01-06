@@ -2,7 +2,6 @@
 Documentation       Testando o produto
 
 
-Library    Selenium2Library
 Resource    ../../steps/Produtos/ProdutosSteps.robot
 Resource    ../../steps/Login/LoginSteps.robot
 
