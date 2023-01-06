@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.9.10 on win32)" generated="20221212 19:36:07.157" rpa="false" schemaversion="3">
+<suite id="s1" name="Swag Labs" source="C:\Users\Vuribi\Pictures\Swag Labs">
+<suite id="s1-s1" name="Resources" source="C:\Users\Vuribi\Pictures\Swag Labs\resources">
+<suite id="s1-s1-s1" name="Data" source="C:\Users\Vuribi\Pictures\Swag Labs\resources\data">
+<suite id="s1-s1-s1-s1" name="Login" source="C:\Users\Vuribi\Pictures\Swag Labs\resources\data\Login">
+<suite id="s1-s1-s1-s1-s1" name="Login" source="C:\Users\Vuribi\Pictures\Swag Labs\resources\data\Login\Login.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="Cenário 1 - Realizar Login com Username válido" line="12">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:07.531" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:07.530" endtime="20221212 19:36:11.653"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:07.529" endtime="20221212 19:36:11.653"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;standard_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:11.658" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:11.656" endtime="20221212 19:36:11.767"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:11.654" endtime="20221212 19:36:11.767"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;secret_sauce&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:36:13.773" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:36:11.769" endtime="20221212 19:36:13.775"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:13.777" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:13.775" endtime="20221212 19:36:13.898"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:11.768" endtime="20221212 19:36:13.899"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:13.902" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:13.901" endtime="20221212 19:36:14.065"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:13.900" endtime="20221212 19:36:14.066"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:14.102" level="INFO">${titulo_paginaInicial} = PRODUCTS</msg>
+<status status="PASS" starttime="20221212 19:36:14.071" endtime="20221212 19:36:14.103"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221212 19:36:14.104" endtime="20221212 19:36:14.104"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:14.070" endtime="20221212 19:36:14.105"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221212 19:36:14.107" endtime="20221212 19:36:16.462"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:14.105" endtime="20221212 19:36:16.462"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:07.526" endtime="20221212 19:36:16.463"/>
+</test>
+<test id="s1-s1-s1-s1-s1-t2" name="Cenário 2 - Realizar Login com Username bloqueado" line="20">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:16.468" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:16.467" endtime="20221212 19:36:20.203"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:16.466" endtime="20221212 19:36:20.204"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;locked_out_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:20.208" level="INFO">Typing text 'locked_out_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:20.206" endtime="20221212 19:36:20.427"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:20.206" endtime="20221212 19:36:20.428"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;secret_sauce&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:36:22.436" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:36:20.433" endtime="20221212 19:36:22.438"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:22.446" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:22.443" endtime="20221212 19:36:22.579"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:20.432" endtime="20221212 19:36:22.579"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:22.582" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:22.581" endtime="20221212 19:36:22.691"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:22.580" endtime="20221212 19:36:22.693"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:22.841" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-31.png"&gt;&lt;img src="selenium-screenshot-31.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221212 19:36:22.842" level="FAIL">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</msg>
+<status status="FAIL" starttime="20221212 19:36:22.697" endtime="20221212 19:36:22.846"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221212 19:36:22.847" endtime="20221212 19:36:22.847"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:22.696" endtime="20221212 19:36:22.847"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<status status="NOT RUN" starttime="20221212 19:36:22.849" endtime="20221212 19:36:22.850"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:16.465" endtime="20221212 19:36:22.852">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</status>
+</test>
+<test id="s1-s1-s1-s1-s1-t3" name="Cenário 3 - Realizar Login com Username problematico" line="28">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:22.866" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:22.865" endtime="20221212 19:36:26.587"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:22.865" endtime="20221212 19:36:26.588"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;problem_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:26.590" level="INFO">Typing text 'problem_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:26.589" endtime="20221212 19:36:26.753"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:26.589" endtime="20221212 19:36:26.754"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;secret_sauce&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:36:28.762" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:36:26.755" endtime="20221212 19:36:28.763"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:28.764" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:28.763" endtime="20221212 19:36:28.894"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:26.754" endtime="20221212 19:36:28.894"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:28.899" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:28.898" endtime="20221212 19:36:29.137"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:28.898" endtime="20221212 19:36:29.137"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:29.266" level="INFO">${titulo_paginaInicial} = PRODUCTS</msg>
+<status status="PASS" starttime="20221212 19:36:29.142" endtime="20221212 19:36:29.267"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221212 19:36:29.268" endtime="20221212 19:36:29.268"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:29.141" endtime="20221212 19:36:29.269"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221212 19:36:29.270" endtime="20221212 19:36:31.652"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:29.269" endtime="20221212 19:36:31.653"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:22.863" endtime="20221212 19:36:31.654"/>
+</test>
+<test id="s1-s1-s1-s1-s1-t4" name="Cenário 4 - Realizar Login com Username perfomando ruim" line="37">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:31.666" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:31.664" endtime="20221212 19:36:35.337"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:31.663" endtime="20221212 19:36:35.337"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;performance_glitch_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:35.345" level="INFO">Typing text 'performance_glitch_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:35.343" endtime="20221212 19:36:35.544"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:35.342" endtime="20221212 19:36:35.545"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;secret_sauce&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:36:37.551" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:36:35.546" endtime="20221212 19:36:37.552"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:37.553" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:37.552" endtime="20221212 19:36:37.869"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:35.545" endtime="20221212 19:36:37.869"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:37.882" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:37.881" endtime="20221212 19:36:43.131"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:37.880" endtime="20221212 19:36:43.132"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:43.215" level="INFO">${titulo_paginaInicial} = PRODUCTS</msg>
+<status status="PASS" starttime="20221212 19:36:43.136" endtime="20221212 19:36:43.216"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221212 19:36:43.217" endtime="20221212 19:36:43.218"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:43.134" endtime="20221212 19:36:43.218"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221212 19:36:43.232" endtime="20221212 19:36:45.504"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:43.230" endtime="20221212 19:36:45.505"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:31.661" endtime="20221212 19:36:45.510"/>
+</test>
+<test id="s1-s1-s1-s1-s1-t5" name="Cenário 1 - Realizar Login com Username válido sem senha" line="48">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:45.521" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:45.519" endtime="20221212 19:36:49.369"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:45.518" endtime="20221212 19:36:49.370"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;standard_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:49.374" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:49.371" endtime="20221212 19:36:49.543"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:49.370" endtime="20221212 19:36:49.543"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:36:51.553" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:36:49.545" endtime="20221212 19:36:51.554"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:51.558" level="INFO">Typing text '' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:51.554" endtime="20221212 19:36:51.646"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:49.544" endtime="20221212 19:36:51.646"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:51.648" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:51.648" endtime="20221212 19:36:51.714"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:51.647" endtime="20221212 19:36:51.714"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:51.859" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-32.png"&gt;&lt;img src="selenium-screenshot-32.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221212 19:36:51.860" level="FAIL">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</msg>
+<status status="FAIL" starttime="20221212 19:36:51.716" endtime="20221212 19:36:51.863"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221212 19:36:51.863" endtime="20221212 19:36:51.864"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:51.715" endtime="20221212 19:36:51.864"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<status status="NOT RUN" starttime="20221212 19:36:51.869" endtime="20221212 19:36:51.870"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:45.515" endtime="20221212 19:36:51.877">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</status>
+</test>
+<test id="s1-s1-s1-s1-s1-t6" name="Cenário 2 - Realizar Login com Username válido sem senha" line="59">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:51.910" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:51.908" endtime="20221212 19:36:55.863"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:51.907" endtime="20221212 19:36:55.864"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;locked_out_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:55.868" level="INFO">Typing text 'locked_out_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:55.866" endtime="20221212 19:36:56.044"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:55.865" endtime="20221212 19:36:56.045"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:36:58.059" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:36:56.047" endtime="20221212 19:36:58.060"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:58.064" level="INFO">Typing text '' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:58.061" endtime="20221212 19:36:58.222"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:56.046" endtime="20221212 19:36:58.223"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:58.231" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:36:58.230" endtime="20221212 19:36:58.304"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:58.228" endtime="20221212 19:36:58.305"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:36:58.458" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-33.png"&gt;&lt;img src="selenium-screenshot-33.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221212 19:36:58.460" level="FAIL">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</msg>
+<status status="FAIL" starttime="20221212 19:36:58.313" endtime="20221212 19:36:58.462"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221212 19:36:58.462" endtime="20221212 19:36:58.463"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:58.311" endtime="20221212 19:36:58.464"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<status status="NOT RUN" starttime="20221212 19:36:58.467" endtime="20221212 19:36:58.467"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:51.905" endtime="20221212 19:36:58.468">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</status>
+</test>
+<test id="s1-s1-s1-s1-s1-t7" name="Cenário 3 - Realizar Login com Username Com Problemas sem senha" line="69">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:36:58.475" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:36:58.473" endtime="20221212 19:37:02.153"/>
+</kw>
+<status status="PASS" starttime="20221212 19:36:58.471" endtime="20221212 19:37:02.153"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;problem_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:02.167" level="INFO">Typing text 'problem_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:02.165" endtime="20221212 19:37:02.374"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:02.164" endtime="20221212 19:37:02.375"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:37:04.405" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:37:02.400" endtime="20221212 19:37:04.408"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:04.410" level="INFO">Typing text '' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:04.409" endtime="20221212 19:37:04.520"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:02.398" endtime="20221212 19:37:04.520"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:04.524" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:04.522" endtime="20221212 19:37:04.585"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:04.521" endtime="20221212 19:37:04.585"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:04.736" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-34.png"&gt;&lt;img src="selenium-screenshot-34.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221212 19:37:04.737" level="FAIL">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</msg>
+<status status="FAIL" starttime="20221212 19:37:04.587" endtime="20221212 19:37:04.742"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221212 19:37:04.742" endtime="20221212 19:37:04.743"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:37:04.586" endtime="20221212 19:37:04.743"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<status status="NOT RUN" starttime="20221212 19:37:04.744" endtime="20221212 19:37:04.745"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:36:58.470" endtime="20221212 19:37:04.745">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</status>
+</test>
+<test id="s1-s1-s1-s1-s1-t8" name="Cenário 4 - Realizar Login com Username válido sem senha" line="80">
+<kw name="Dado que estou na pagina de Login do Swag Labs" library="Base">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:37:04.751" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:37:04.750" endtime="20221212 19:37:08.823"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:04.749" endtime="20221212 19:37:08.824"/>
+</kw>
+<kw name="E preencho o campo Username com &quot;performance_glitch_user&quot;" library="Base" sourcename="E preencho o campo Username com &quot;${email}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:08.828" level="INFO">Typing text 'performance_glitch_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:08.826" endtime="20221212 19:37:09.003"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:08.825" endtime="20221212 19:37:09.003"/>
+</kw>
+<kw name="E preencho o campo Password com &quot;&quot;" library="Base" sourcename="E preencho o campo Password com &quot;${senha}&quot;">
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221212 19:37:11.012" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221212 19:37:09.004" endtime="20221212 19:37:11.013"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:11.016" level="INFO">Typing text '' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:11.014" endtime="20221212 19:37:11.148"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:09.003" endtime="20221212 19:37:11.148"/>
+</kw>
+<kw name="Quando clico no botao Login" library="Base">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:11.151" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:11.150" endtime="20221212 19:37:11.210"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:11.149" endtime="20221212 19:37:11.211"/>
+</kw>
+<kw name="Entao consigo entrar no sistema com sucesso!!!" library="Base">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:11.350" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-35.png"&gt;&lt;img src="selenium-screenshot-35.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221212 19:37:11.350" level="FAIL">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</msg>
+<status status="FAIL" starttime="20221212 19:37:11.212" endtime="20221212 19:37:11.352"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20221212 19:37:11.353" endtime="20221212 19:37:11.353"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:37:11.211" endtime="20221212 19:37:11.353"/>
+</kw>
+<kw name="Fechar o browser" library="Base">
+<status status="NOT RUN" starttime="20221212 19:37:11.354" endtime="20221212 19:37:11.354"/>
+</kw>
+<status status="FAIL" starttime="20221212 19:37:04.748" endtime="20221212 19:37:11.355">Element with locator '//*[@id="header_container"]/div[2]/span[1]' not found.</status>
+</test>
+<test id="s1-s1-s1-s1-s1-t9" name="Cenario de Login rapido" line="99">
+<kw name="Logar rapido" library="Base">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221212 19:37:11.363" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20221212 19:37:11.362" endtime="20221212 19:37:15.146"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:15.147" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:15.146" endtime="20221212 19:37:15.283"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:15.284" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:15.283" endtime="20221212 19:37:15.382"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:15.383" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20221212 19:37:15.383" endtime="20221212 19:37:15.502"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221212 19:37:15.546" level="INFO">${titulo_paginaInicial} = PRODUCTS</msg>
+<status status="PASS" starttime="20221212 19:37:15.502" endtime="20221212 19:37:15.546"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>PRODUCTS</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221212 19:37:15.547" endtime="20221212 19:37:15.547"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:11.361" endtime="20221212 19:37:15.548"/>
+</kw>
+<status status="PASS" starttime="20221212 19:37:11.359" endtime="20221212 19:37:15.549"/>
+</test>
+<doc>Testando a pagina login</doc>
+<status status="FAIL" starttime="20221212 19:36:07.234" endtime="20221212 19:37:15.551"/>
+</suite>
+<status status="FAIL" starttime="20221212 19:36:07.225" endtime="20221212 19:37:15.557"/>
+</suite>
+<status status="FAIL" starttime="20221212 19:36:07.218" endtime="20221212 19:37:15.561"/>
+</suite>
+<status status="FAIL" starttime="20221212 19:36:07.213" endtime="20221212 19:37:15.564"/>
+</suite>
+<status status="FAIL" starttime="20221212 19:36:07.166" endtime="20221212 19:37:15.568"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="5" skip="0" id="s1" name="Swag Labs">Swag Labs</stat>
+<stat pass="4" fail="5" skip="0" id="s1-s1" name="Resources">Swag Labs.Resources</stat>
+<stat pass="4" fail="5" skip="0" id="s1-s1-s1" name="Data">Swag Labs.Resources.Data</stat>
+<stat pass="4" fail="5" skip="0" id="s1-s1-s1-s1" name="Login">Swag Labs.Resources.Data.Login</stat>
+<stat pass="4" fail="5" skip="0" id="s1-s1-s1-s1-s1" name="Login">Swag Labs.Resources.Data.Login.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
