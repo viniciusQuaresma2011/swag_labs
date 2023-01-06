@@ -1,10 +1,8 @@
 *** Settings ***
-
-Library    Selenium2Library
-Library    factories/Users.py
+Resource  ../../base/Base.robot
 
 *** Variables ***
-${URL}    https://www.saucedemo.com/
+
 
 ${verifica_titulo}    //*[@id="header_container"]/div[2]/span[1]
 ${titulo}             PRODUCTS

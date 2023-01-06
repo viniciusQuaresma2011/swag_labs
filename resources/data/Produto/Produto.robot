@@ -3,8 +3,8 @@ Documentation       Testando o produto
 
 
 Library    Selenium2Library
-Resource    ../../routes/Produto_route.robot
-Resource    ../../base/Base.robot
+Resource    ../../specs/Produtos/ProdutosSteps.robot
+Resource    ../../specs/Login/LoginSteps.robot
 
 
 *** Test Cases ***

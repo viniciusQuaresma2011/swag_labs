@@ -4,6 +4,7 @@ Documentation       Testando a pagina login
 
 Library    Selenium2Library
 Resource    ../../base/Base.robot
+Resource    ../../specs/Login/LoginSteps.robot
 Suite Teardown   Close All Browsers
 
 
