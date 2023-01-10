@@ -24,6 +24,7 @@ Cenário 2 - Realizar Login com Username bloqueado
     E preencho o campo Username com "locked_out_user"
     E preencho o campo Password com "secret_sauce"
     Quando clico no botao Login
+    Verifica a mensagem de erro "Epic sadface: Sorry, this user has been locked out."
     Entao consigo entrar no sistema com sucesso!!!
     Fechar o browser
 
@@ -52,6 +53,7 @@ Cenário 1 - Realizar Login com Username válido sem senha
     E preencho o campo Username com "standard_user"
     E preencho o campo Password com ""
     Quando clico no botao Login
+    Verifica a mensagem de erro "Epic sadface: Password is required"
     Entao consigo entrar no sistema com sucesso!!!
     Fechar o browser
 ########################################################
@@ -63,6 +65,7 @@ Cenário 2 - Realizar Login com Username válido sem senha
     E preencho o campo Username com "locked_out_user"
     E preencho o campo Password com ""
     Quando clico no botao Login
+    Verifica a mensagem de erro "Epic sadface: Password is required"
     Entao consigo entrar no sistema com sucesso!!!
     Fechar o browser
 ########################################################
@@ -73,6 +76,7 @@ Cenário 3 - Realizar Login com Username Com Problemas sem senha
     E preencho o campo Username com "problem_user"
     E preencho o campo Password com ""
     Quando clico no botao Login
+    Verifica a mensagem de erro "Epic sadface: Password is required"
     Entao consigo entrar no sistema com sucesso!!!
     Fechar o browser
 ########################################################
@@ -84,6 +88,7 @@ Cenário 4 - Realizar Login com Username válido sem senha
     E preencho o campo Username com "performance_glitch_user"
     E preencho o campo Password com ""
     Quando clico no botao Login
+    Verifica a mensagem de erro "Epic sadface: Password is required"
     Entao consigo entrar no sistema com sucesso!!!
     Fechar o browser
 ########################################################

@@ -4,8 +4,6 @@ Resource    ../../base/Base.robot
 
 
 *** Variables ***
-
-
 ${verifica_titulo}    //*[@id="header_container"]/div[2]/span[1]
 ${titulo}             PRODUCTS
 

@@ -5,13 +5,13 @@ Resource    ../../base/Base.robot
 
 *** Variables ***
 
-${input_username}    //*[@id="user-name"]
-${input_senha}    //*[@id="password"]
-${botao_login}    //*[@id="login-button"]
-${verifica_titulo}    //*[@id="header_container"]/div[2]/span[1]
+${input_username}    css:input#user-name
+${input_senha}    css:input#password
+${botao_login}    css:input#login-button
+${verifica_titulo}    css:div#header_container > div:nth-of-type(2) > span
 ${titulo}             PRODUCTS
 
-${verifica_mensagem_erro}    //*[@id="login_button_container"]/div[1]/form[1]/div[3]/h3
+${card_mensagem_erro}    //*[@id="login_button_container"]/div[1]/form[1]/div[3]/h3[1]
 ${mensagem_erro}             Epic sadface: Sorry, this user has been locked out.
 
 *** Keywords ***
@@ -27,6 +27,11 @@ E preencho o campo Password com "${senha}"
 
 Quando clico no botao Login
     Click Element    ${botao_login}
+
+
+Verifica a mensagem de erro "${erro}"
+    ${mensagem_erro}    Get Text    ${card_mensagem_erro}
+    Should Be Equal    ${erro}    ${mensagem_erro}
 
 Entao consigo entrar no sistema com sucesso!!!
     ${titulo_paginaInicial}    Get Text     ${verifica_titulo}
