@@ -1,0 +1,1472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.9.10 on win32)" generated="20230612 00:24:12.708" rpa="false" schemaversion="3">
+<suite id="s1" name="Carrinho" source="C:\Users\Vuribi\3D Objects\Justa_automacao\swag_labs\resources\data\Carrinho\Carrinho.robot">
+<test id="s1-t1" name="Cenário 1 - Realizar a compra de uma camisa vermelha válida" line="13">
+<kw name="Logar rapido" library="LoginSteps">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 00:24:13.057" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230612 00:24:13.056" endtime="20230612 00:24:15.169"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:15.169" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:15.169" endtime="20230612 00:24:15.385"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:15.386" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:15.385" endtime="20230612 00:24:15.471"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:15.471" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:15.471" endtime="20230612 00:24:15.606"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:15.640" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:15.607" endtime="20230612 00:24:15.640"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:15.640" endtime="20230612 00:24:15.640"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:13.056" endtime="20230612 00:24:15.640"/>
+</kw>
+<kw name="Dado que estou na pagina de listagem de Produtos - carrinho" library="CarrinhoSteps">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:15.674" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:15.647" endtime="20230612 00:24:15.674"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo_paginaInicial}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:15.675" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:15.674" endtime="20230612 00:24:15.675"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:15.675" endtime="20230612 00:24:15.675"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:15.675" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:15.675" endtime="20230612 00:24:15.675"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:15.646" endtime="20230612 00:24:15.675"/>
+</kw>
+<kw name="E escolho uma camisa do tipo &quot;T-Shirt&quot; e com a cor &quot;Red&quot;" library="CarrinhoSteps" sourcename="E escolho uma camisa do tipo &quot;${tipo}&quot; e com a cor &quot;${cor}&quot;">
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230612 00:24:15.677" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230612 00:24:15.676" endtime="20230612 00:24:15.685"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230612 00:24:17.693" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230612 00:24:15.685" endtime="20230612 00:24:17.693"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:17.754" level="INFO">Current page contains element 'xpath=//*[contains(text(),'T-Shirt') and contains(text(),'Red')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:17.693" endtime="20230612 00:24:17.754"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:17.788" level="INFO">${titulo_produto_details} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:17.754" endtime="20230612 00:24:17.788"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:17.798" level="INFO">Current page contains element 'xpath=//*[contains(text(),'T-Shirt') and contains(text(),'Red')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:17.789" endtime="20230612 00:24:17.798"/>
+</kw>
+<msg timestamp="20230612 00:24:17.798" level="INFO">${Status} = True</msg>
+<status status="PASS" starttime="20230612 00:24:17.789" endtime="20230612 00:24:17.798"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Status}' == 'True'">
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${cor}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:17.799" level="INFO">Clicking element '//*[contains(text(),'Red')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:17.798" endtime="20230612 00:24:17.909"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:17.798" endtime="20230612 00:24:17.909"/>
+</branch>
+<status status="PASS" starttime="20230612 00:24:17.798" endtime="20230612 00:24:17.909"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230612 00:24:19.917" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230612 00:24:17.909" endtime="20230612 00:24:19.917"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:19.937" level="INFO">${titulo_produto_details} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:19.917" endtime="20230612 00:24:19.937"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${tipo}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:19.938" level="INFO">Clicking element '//*[contains(text(),'T-Shirt')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:19.937" endtime="20230612 00:24:19.979"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:19.988" level="INFO">Current page contains element 'xpath=//*[contains(text(),'T-Shirt') and contains(text(),'Red')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:19.979" endtime="20230612 00:24:19.988"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:15.676" endtime="20230612 00:24:19.988"/>
+</kw>
+<kw name="E adiciono ao Carrinho" library="CarrinhoSteps">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${add_cart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:19.990" level="INFO">Clicking element 'xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/button[1]'.</msg>
+<status status="PASS" starttime="20230612 00:24:19.989" endtime="20230612 00:24:20.039"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:19.988" endtime="20230612 00:24:20.039"/>
+</kw>
+<kw name="E clico para visualizar o Carrinho com a camisa tipo &quot;T-Shirt&quot; e cor &quot;Red&quot;" library="CarrinhoSteps" sourcename="E clico para visualizar o Carrinho com a camisa tipo &quot;${tipo}&quot; e cor &quot;${cor}&quot;">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${show_cart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.042" level="INFO">Clicking element '//*[@id="shopping_cart_container"]/a[1]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.041" endtime="20230612 00:24:20.091"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${produto_detalhes_visualizar}</var>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.109" level="INFO">${produto_detalhes_visualizar} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.091" endtime="20230612 00:24:20.109"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${produto_detalhes_visualizar}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.109" level="INFO">Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.109" endtime="20230612 00:24:20.109"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${tipo_editado}</var>
+<arg>${produto_detalhes_visualizar}</arg>
+<arg>Test.allTheThings()</arg>
+<arg>(Red)</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.109" level="INFO">${tipo_editado} =  T-Shirt </msg>
+<status status="PASS" starttime="20230612 00:24:20.109" endtime="20230612 00:24:20.109"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${tipo_editado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.110" level="INFO"> T-Shirt </msg>
+<status status="PASS" starttime="20230612 00:24:20.109" endtime="20230612 00:24:20.110"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${cor_editado}</var>
+<arg>${produto_detalhes_visualizar}</arg>
+<arg>Test.allTheThings() T-Shirt ()</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.110" level="INFO">${cor_editado} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.110" endtime="20230612 00:24:20.110"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${cor_editado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.110" level="INFO">Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.110" endtime="20230612 00:24:20.110"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${tipo_editado_clean}</var>
+<arg>"${tipo_editado}".split(" ")[1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230612 00:24:20.111" level="INFO">${tipo_editado_clean} = T-Shirt</msg>
+<status status="PASS" starttime="20230612 00:24:20.110" endtime="20230612 00:24:20.111"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${tipo_editado_clean}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.111" level="INFO">T-Shirt</msg>
+<status status="PASS" starttime="20230612 00:24:20.111" endtime="20230612 00:24:20.111"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${cor_editado_clean}</var>
+<arg>"${cor_editado}".split(" ")[2]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230612 00:24:20.111" level="INFO">${cor_editado_clean} = (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.111" endtime="20230612 00:24:20.111"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${cor_editado_clean}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.111" level="INFO">(Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.111" endtime="20230612 00:24:20.112"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${cor_editado_clean_parenteses}</var>
+<arg>${cor_editado_clean}</arg>
+<arg>(</arg>
+<arg>)</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.112" level="INFO">${cor_editado_clean_parenteses} = Red</msg>
+<status status="PASS" starttime="20230612 00:24:20.112" endtime="20230612 00:24:20.112"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${cor_editado_clean_parenteses}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.112" level="INFO">Red</msg>
+<status status="PASS" starttime="20230612 00:24:20.112" endtime="20230612 00:24:20.112"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${tipo}</arg>
+<arg>${tipo_editado_clean}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.112" endtime="20230612 00:24:20.112"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${cor}</arg>
+<arg>${cor_editado_clean_parenteses}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.113" endtime="20230612 00:24:20.113"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.040" endtime="20230612 00:24:20.113"/>
+</kw>
+<kw name="E clico no botão Checkout" library="CarrinhoSteps">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_checkout}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.115" level="INFO">Clicking element '//*[@id="checkout"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.114" endtime="20230612 00:24:20.163"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.113" endtime="20230612 00:24:20.164"/>
+</kw>
+<kw name="E preencho o campo First Name com o dado &quot;Kratos&quot;" library="CarrinhoSteps" sourcename="E preencho o campo First Name com o dado &quot;${first_name}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${first_name_input}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.166" level="INFO">Typing text 'Kratos' into text field '//*[@id="first-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.165" endtime="20230612 00:24:20.255"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.164" endtime="20230612 00:24:20.256"/>
+</kw>
+<kw name="E preencho o campo Last Name com o dado &quot;Guerreiro&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Last Name com o dado &quot;${last_name}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${last_name_input}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.257" level="INFO">Typing text 'Guerreiro' into text field '//*[@id="last-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.256" endtime="20230612 00:24:20.351"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.256" endtime="20230612 00:24:20.351"/>
+</kw>
+<kw name="E preencho o campo Zip/Postal Code com o dado &quot;Rua Sparta, Grécia&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Zip/Postal Code com o dado &quot;${address_delivery}&quot;">
+<kw name="Input Text" library="Selenium2Library">
+<arg>${address_delivery_input}</arg>
+<arg>${address_delivery}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.353" level="INFO">Typing text 'Rua Sparta, Grécia' into text field '//*[@id="postal-code"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.352" endtime="20230612 00:24:20.463"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.352" endtime="20230612 00:24:20.463"/>
+</kw>
+<kw name="E clico em Continuar para visualizar os detalhes da compra da camisa tipo &quot;T-Shirt&quot;, cor &quot;Red&quot; e preco &quot;15.99&quot;" library="CarrinhoSteps" sourcename="E clico em Continuar para visualizar os detalhes da compra da camisa tipo &quot;${tipo}&quot;, cor &quot;${cor}&quot; e preco &quot;${preco}&quot;">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_continue}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.468" level="INFO">Clicking element '//*[@id="continue"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.467" endtime="20230612 00:24:20.523"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${preco_produto_escolhido}</var>
+<arg>${produto_escolhido_carrinho_preco}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.551" level="INFO">${preco_produto_escolhido} = $15.99</msg>
+<status status="PASS" starttime="20230612 00:24:20.523" endtime="20230612 00:24:20.551"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${preco_produto_escolhido}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.551" level="INFO">$15.99</msg>
+<status status="PASS" starttime="20230612 00:24:20.551" endtime="20230612 00:24:20.551"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${preco_produto_escolhido_clean}</var>
+<arg>${preco_produto_escolhido}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.552" level="INFO">${preco_produto_escolhido_clean} = 15.99</msg>
+<status status="PASS" starttime="20230612 00:24:20.551" endtime="20230612 00:24:20.552"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${produto_detalhes_visualizar}</var>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.565" level="INFO">${produto_detalhes_visualizar} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.552" endtime="20230612 00:24:20.565"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${produto_detalhes_visualizar}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.566" level="INFO">Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.566" endtime="20230612 00:24:20.566"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${tipo_editado}</var>
+<arg>${produto_detalhes_visualizar}</arg>
+<arg>Test.allTheThings()</arg>
+<arg>(Red)</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.566" level="INFO">${tipo_editado} =  T-Shirt </msg>
+<status status="PASS" starttime="20230612 00:24:20.566" endtime="20230612 00:24:20.566"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${tipo_editado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.567" level="INFO"> T-Shirt </msg>
+<status status="PASS" starttime="20230612 00:24:20.567" endtime="20230612 00:24:20.567"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${cor_editado}</var>
+<arg>${produto_detalhes_visualizar}</arg>
+<arg>Test.allTheThings() T-Shirt ()</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.567" level="INFO">${cor_editado} = Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.567" endtime="20230612 00:24:20.567"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${cor_editado}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.568" level="INFO">Test.allTheThings() T-Shirt (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.567" endtime="20230612 00:24:20.568"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${tipo_editado_clean}</var>
+<arg>"${tipo_editado}".split(" ")[1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230612 00:24:20.568" level="INFO">${tipo_editado_clean} = T-Shirt</msg>
+<status status="PASS" starttime="20230612 00:24:20.568" endtime="20230612 00:24:20.568"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${tipo_editado_clean}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.568" level="INFO">T-Shirt</msg>
+<status status="PASS" starttime="20230612 00:24:20.568" endtime="20230612 00:24:20.568"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${cor_editado_clean}</var>
+<arg>"${cor_editado}".split(" ")[2]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230612 00:24:20.569" level="INFO">${cor_editado_clean} = (Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.568" endtime="20230612 00:24:20.569"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${cor_editado_clean}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.569" level="INFO">(Red)</msg>
+<status status="PASS" starttime="20230612 00:24:20.569" endtime="20230612 00:24:20.569"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${cor_editado_clean_parenteses}</var>
+<arg>${cor_editado_clean}</arg>
+<arg>(</arg>
+<arg>)</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.569" level="INFO">${cor_editado_clean_parenteses} = Red</msg>
+<status status="PASS" starttime="20230612 00:24:20.569" endtime="20230612 00:24:20.569"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${cor_editado_clean_parenteses}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:20.569" level="INFO">Red</msg>
+<status status="PASS" starttime="20230612 00:24:20.569" endtime="20230612 00:24:20.570"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${tipo}</arg>
+<arg>${tipo_editado_clean}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.570" endtime="20230612 00:24:20.570"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${cor}</arg>
+<arg>${cor_editado_clean_parenteses}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.570" endtime="20230612 00:24:20.570"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${preco}</arg>
+<arg>${preco_produto_escolhido_clean}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.570" endtime="20230612 00:24:20.571"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.466" endtime="20230612 00:24:20.571"/>
+</kw>
+<kw name="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;1&quot;" library="CarrinhoSteps" sourcename="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;${qtde}&quot;">
+<kw name="Get Text" library="Selenium2Library">
+<var>${qtde_String_carrinho}</var>
+<arg>${qtde_produto_carrinho}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.590" level="INFO">${qtde_String_carrinho} = 1</msg>
+<status status="PASS" starttime="20230612 00:24:20.572" endtime="20230612 00:24:20.590"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${qtde}</arg>
+<arg>${qtde_String_carrinho}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.590" endtime="20230612 00:24:20.591"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.571" endtime="20230612 00:24:20.591"/>
+</kw>
+<kw name="E visualizo o meio de pagamento do Carrinho - &quot;SauceCard #31337&quot;" library="CarrinhoSteps" sourcename="E visualizo o meio de pagamento do Carrinho - &quot;${meio_de_pagamento}&quot;">
+<kw name="Get Text" library="Selenium2Library">
+<var>${pagamento_String_carrinho}</var>
+<arg>${info_pagamento}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.609" level="INFO">${pagamento_String_carrinho} = SauceCard #31337</msg>
+<status status="PASS" starttime="20230612 00:24:20.591" endtime="20230612 00:24:20.609"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${meio_de_pagamento}</arg>
+<arg>${pagamento_String_carrinho}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.609" endtime="20230612 00:24:20.609"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.591" endtime="20230612 00:24:20.609"/>
+</kw>
+<kw name="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;Free Pony Express Delivery!&quot;" library="CarrinhoSteps" sourcename="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;${forma_de_entrega}&quot;">
+<kw name="Get Text" library="Selenium2Library">
+<var>${entrega_String_carrinho}</var>
+<arg>${info_entrega}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.629" level="INFO">${entrega_String_carrinho} = Free Pony Express Delivery!</msg>
+<status status="PASS" starttime="20230612 00:24:20.610" endtime="20230612 00:24:20.630"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${forma_de_entrega}</arg>
+<arg>${entrega_String_carrinho}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.630" endtime="20230612 00:24:20.630"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.610" endtime="20230612 00:24:20.630"/>
+</kw>
+<kw name="E visualizo o total preco do Produto do Carrinho - &quot;15.99&quot;" library="CarrinhoSteps" sourcename="E visualizo o total preco do Produto do Carrinho - &quot;${preco_produto_carrinho}&quot;">
+<kw name="Get Text" library="Selenium2Library">
+<var>${total_String_carrinho}</var>
+<arg>${total_carrinho}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.649" level="INFO">${total_String_carrinho} = $15.99</msg>
+<status status="PASS" starttime="20230612 00:24:20.631" endtime="20230612 00:24:20.649"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${preco_total_produto_escolhido_carrinho_clean}</var>
+<arg>${total_String_carrinho}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.650" level="INFO">${preco_total_produto_escolhido_carrinho_clean} = 15.99</msg>
+<status status="PASS" starttime="20230612 00:24:20.649" endtime="20230612 00:24:20.650"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${preco_produto_carrinho}</arg>
+<arg>${preco_total_produto_escolhido_carrinho_clean}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.650" endtime="20230612 00:24:20.651"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.630" endtime="20230612 00:24:20.651"/>
+</kw>
+<kw name="E visualizo a taxa de entrega do Produto do Carrinho - &quot;1.28&quot;" library="CarrinhoSteps" sourcename="E visualizo a taxa de entrega do Produto do Carrinho - &quot;${preco_taxa_carrinho}&quot;">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${taxa_carrinho}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230612 00:24:20.651" endtime="20230612 00:24:20.677"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${taxa_String_carrinho}</var>
+<arg>${taxa_carrinho}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.692" level="INFO">${taxa_String_carrinho} = Tax: $1.28</msg>
+<status status="PASS" starttime="20230612 00:24:20.677" endtime="20230612 00:24:20.692"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${preco_taxa_produto_escolhido_carrinho_clean}</var>
+<arg>${taxa_String_carrinho}</arg>
+<arg>Tax: $</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.692" level="INFO">${preco_taxa_produto_escolhido_carrinho_clean} = 1.28</msg>
+<status status="PASS" starttime="20230612 00:24:20.692" endtime="20230612 00:24:20.692"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${preco_taxa_carrinho}</arg>
+<arg>${preco_taxa_produto_escolhido_carrinho_clean}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.692" endtime="20230612 00:24:20.693"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.651" endtime="20230612 00:24:20.693"/>
+</kw>
+<kw name="E visualizo o preco total finalizado do Produto do Carrinho - &quot;17.27&quot;" library="CarrinhoSteps" sourcename="E visualizo o preco total finalizado do Produto do Carrinho - &quot;${preco_total_finalizado}&quot;">
+<kw name="Get Text" library="Selenium2Library">
+<var>${preco_total_finalizado_carrinho_clean}</var>
+<arg>${total_finalizado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.712" level="INFO">${preco_total_finalizado_carrinho_clean} = Total: $17.27</msg>
+<status status="PASS" starttime="20230612 00:24:20.694" endtime="20230612 00:24:20.712"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${preco_total_finalizado_escolhido_carrinho_clean}</var>
+<arg>${preco_total_finalizado_carrinho_clean}</arg>
+<arg>Total: $</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20230612 00:24:20.712" level="INFO">${preco_total_finalizado_escolhido_carrinho_clean} = 17.27</msg>
+<status status="PASS" starttime="20230612 00:24:20.712" endtime="20230612 00:24:20.712"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${preco_total_finalizado}</arg>
+<arg>${preco_total_finalizado_escolhido_carrinho_clean}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.712" endtime="20230612 00:24:20.713"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.693" endtime="20230612 00:24:20.713"/>
+</kw>
+<kw name="Quando clico no botão Finish" library="CarrinhoSteps">
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_finalizar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.714" level="INFO">Clicking element '//*[@id="finish"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.713" endtime="20230612 00:24:20.757"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.713" endtime="20230612 00:24:20.757"/>
+</kw>
+<kw name="Então finalizo a compra dos produtos com sucesso!" library="CarrinhoSteps">
+<kw name="Get Text" library="Selenium2Library">
+<var>${success_String_carrinho}</var>
+<arg>${sucess_message}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.786" level="INFO">${success_String_carrinho} = Thank you for your order!</msg>
+<status status="PASS" starttime="20230612 00:24:20.759" endtime="20230612 00:24:20.786"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${message}</arg>
+<arg>${success_String_carrinho}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.787" endtime="20230612 00:24:20.787"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${details_String_carrinho}</var>
+<arg>${details_message_success}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.805" level="INFO">${details_String_carrinho} = Your order has been dispatched, and will arrive just as fast as the pony can get there!</msg>
+<status status="PASS" starttime="20230612 00:24:20.787" endtime="20230612 00:24:20.805"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${details}</arg>
+<arg>${details_String_carrinho}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:20.806" endtime="20230612 00:24:20.806"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${retornar_home}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:20.807" level="INFO">Clicking element '//*[@id="back-to-products"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:20.806" endtime="20230612 00:24:20.854"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230612 00:24:20.854" endtime="20230612 00:24:23.035"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:20.758" endtime="20230612 00:24:23.035"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:13.050" endtime="20230612 00:24:23.035"/>
+</test>
+<test id="s1-t2" name="Cenário 2 - Realizar a compra de uma camisa vermelha inválida" line="33">
+<kw name="Logar rapido" library="LoginSteps">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 00:24:23.044" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230612 00:24:23.042" endtime="20230612 00:24:24.952"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:24.952" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:24.952" endtime="20230612 00:24:25.098"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:25.099" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:25.098" endtime="20230612 00:24:25.200"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:25.201" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:25.201" endtime="20230612 00:24:25.339"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:25.402" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:25.339" endtime="20230612 00:24:25.402"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:25.403" endtime="20230612 00:24:25.403"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:23.042" endtime="20230612 00:24:25.403"/>
+</kw>
+<kw name="Dado que estou na pagina de listagem de Produtos - carrinho" library="CarrinhoSteps">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:25.437" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:25.404" endtime="20230612 00:24:25.437"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo_paginaInicial}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:25.437" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:25.437" endtime="20230612 00:24:25.437"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:25.437" endtime="20230612 00:24:25.437"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:25.438" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:25.438" endtime="20230612 00:24:25.438"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:25.403" endtime="20230612 00:24:25.438"/>
+</kw>
+<kw name="E escolho uma camisa do tipo &quot;@#$%@$#&quot; e com a cor &quot;*&amp;¨%&quot;" library="CarrinhoSteps" sourcename="E escolho uma camisa do tipo &quot;${tipo}&quot; e com a cor &quot;${cor}&quot;">
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230612 00:24:25.439" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230612 00:24:25.439" endtime="20230612 00:24:25.444"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230612 00:24:27.451" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230612 00:24:25.444" endtime="20230612 00:24:27.451"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:27.614" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230612 00:24:27.614" level="FAIL">Page should have contained element 'xpath=//*[contains(text(),'@#$%@$#') and contains(text(),'*&amp;¨%')]' but did not.</msg>
+<status status="FAIL" starttime="20230612 00:24:27.451" endtime="20230612 00:24:27.618"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Status}' == 'True'">
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${cor}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</kw>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</branch>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.619" endtime="20230612 00:24:27.619"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${tipo}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.620" endtime="20230612 00:24:27.620"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:27.620" endtime="20230612 00:24:27.620"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:25.438" endtime="20230612 00:24:27.620"/>
+</kw>
+<kw name="E adiciono ao Carrinho" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:27.620" endtime="20230612 00:24:27.620"/>
+</kw>
+<kw name="E clico para visualizar o Carrinho com a camisa tipo &quot;@#$%@$#&quot; e cor &quot;*&amp;¨%&quot;" library="CarrinhoSteps" sourcename="E clico para visualizar o Carrinho com a camisa tipo &quot;${tipo}&quot; e cor &quot;${cor}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.621" endtime="20230612 00:24:27.621"/>
+</kw>
+<kw name="E clico no botão Checkout" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:27.621" endtime="20230612 00:24:27.621"/>
+</kw>
+<kw name="E preencho o campo First Name com o dado &quot;Kratos&quot;" library="CarrinhoSteps" sourcename="E preencho o campo First Name com o dado &quot;${first_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.622" endtime="20230612 00:24:27.622"/>
+</kw>
+<kw name="E preencho o campo Last Name com o dado &quot;Guerreiro&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Last Name com o dado &quot;${last_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.622" endtime="20230612 00:24:27.622"/>
+</kw>
+<kw name="E preencho o campo Zip/Postal Code com o dado &quot;Rua Sparta, Grécia&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Zip/Postal Code com o dado &quot;${address_delivery}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.622" endtime="20230612 00:24:27.622"/>
+</kw>
+<kw name="E clico em Continuar para visualizar os detalhes da compra da camisa tipo &quot;@#$%@$#&quot;, cor &quot;Red&quot; e preco &quot;*&amp;¨%&quot;" library="CarrinhoSteps" sourcename="E clico em Continuar para visualizar os detalhes da compra da camisa tipo &quot;${tipo}&quot;, cor &quot;${cor}&quot; e preco &quot;${preco}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.622" endtime="20230612 00:24:27.622"/>
+</kw>
+<kw name="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;1&quot;" library="CarrinhoSteps" sourcename="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;${qtde}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.623" endtime="20230612 00:24:27.623"/>
+</kw>
+<kw name="E visualizo o meio de pagamento do Carrinho - &quot;SauceCard #31337&quot;" library="CarrinhoSteps" sourcename="E visualizo o meio de pagamento do Carrinho - &quot;${meio_de_pagamento}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.623" endtime="20230612 00:24:27.623"/>
+</kw>
+<kw name="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;Free Pony Express Delivery!&quot;" library="CarrinhoSteps" sourcename="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;${forma_de_entrega}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.623" endtime="20230612 00:24:27.623"/>
+</kw>
+<kw name="E visualizo o total preco do Produto do Carrinho - &quot;15.99&quot;" library="CarrinhoSteps" sourcename="E visualizo o total preco do Produto do Carrinho - &quot;${preco_produto_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.623" endtime="20230612 00:24:27.623"/>
+</kw>
+<kw name="E visualizo a taxa de entrega do Produto do Carrinho - &quot;1.28&quot;" library="CarrinhoSteps" sourcename="E visualizo a taxa de entrega do Produto do Carrinho - &quot;${preco_taxa_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.624" endtime="20230612 00:24:27.624"/>
+</kw>
+<kw name="E visualizo o preco total finalizado do Produto do Carrinho - &quot;17.27&quot;" library="CarrinhoSteps" sourcename="E visualizo o preco total finalizado do Produto do Carrinho - &quot;${preco_total_finalizado}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:27.624" endtime="20230612 00:24:27.624"/>
+</kw>
+<kw name="Quando clico no botão Finish" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:27.624" endtime="20230612 00:24:27.624"/>
+</kw>
+<kw name="Então finalizo a compra dos produtos com sucesso!" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:27.625" endtime="20230612 00:24:27.625"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:23.040" endtime="20230612 00:24:27.625">Page should have contained element 'xpath=//*[contains(text(),'@#$%@$#') and contains(text(),'*&amp;¨%')]' but did not.</status>
+</test>
+<test id="s1-t3" name="Cenário 3 - Realizar a compra de uma camisa vermelha nula" line="53">
+<kw name="Logar rapido" library="LoginSteps">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 00:24:27.628" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230612 00:24:27.627" endtime="20230612 00:24:31.553"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:31.553" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:31.553" endtime="20230612 00:24:31.702"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:31.703" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:31.702" endtime="20230612 00:24:31.801"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:31.802" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:31.801" endtime="20230612 00:24:31.949"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:31.999" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:31.949" endtime="20230612 00:24:31.999"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:31.999" endtime="20230612 00:24:31.999"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:27.627" endtime="20230612 00:24:31.999"/>
+</kw>
+<kw name="Dado que estou na pagina de listagem de Produtos - carrinho" library="CarrinhoSteps">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:32.029" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:31.999" endtime="20230612 00:24:32.029"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo_paginaInicial}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:32.030" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:32.029" endtime="20230612 00:24:32.030"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:32.030" endtime="20230612 00:24:32.030"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:32.031" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:32.030" endtime="20230612 00:24:32.031"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:31.999" endtime="20230612 00:24:32.031"/>
+</kw>
+<kw name="E escolho uma camisa do tipo &quot;&quot; e com a cor &quot;&quot;" library="CarrinhoSteps" sourcename="E escolho uma camisa do tipo &quot;${tipo}&quot; e com a cor &quot;${cor}&quot;">
+<kw name="Execute Javascript" library="Selenium2Library">
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230612 00:24:32.033" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)
+Without any arguments.</msg>
+<status status="PASS" starttime="20230612 00:24:32.032" endtime="20230612 00:24:32.039"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230612 00:24:34.054" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230612 00:24:32.040" endtime="20230612 00:24:34.054"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:34.065" level="INFO">Current page contains element 'xpath=//*[contains(text(),'') and contains(text(),'')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:34.056" endtime="20230612 00:24:34.065"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:34.108" level="INFO">${titulo_produto_details} = Open Menu
+Swag Labs
+Products
+Name (A to Z)
+Name (A to Z)
+Name (Z to A)
+Price (low to high)
+Price (high to low)
+Sauce Labs Backpack
+carry.allTheThings() with the sleek, streamlined Sly Pack that melds ...</msg>
+<status status="PASS" starttime="20230612 00:24:34.065" endtime="20230612 00:24:34.108"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:34.126" level="INFO">Current page contains element 'xpath=//*[contains(text(),'') and contains(text(),'')]'.</msg>
+<status status="PASS" starttime="20230612 00:24:34.108" endtime="20230612 00:24:34.126"/>
+</kw>
+<msg timestamp="20230612 00:24:34.126" level="INFO">${Status} = True</msg>
+<status status="PASS" starttime="20230612 00:24:34.108" endtime="20230612 00:24:34.126"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Status}' == 'True'">
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${cor}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:34.129" level="INFO">Clicking element '//*[contains(text(),'')]'.</msg>
+<msg timestamp="20230612 00:24:35.379" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230612 00:24:35.379" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (483, -993)
+  (Session info: MicrosoftEdge=114.0.1823.43)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00007FF67C34B582+64226]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2DBB42+770978]
+	(No symbol) [0x00007FF67C09CC3C]
+	(No symbol) [0x00007FF67C0E82AA]
+	(No symbol) [0x00007FF67C0E5A33]
+	(No symbol) [0x00007FF67C0E3689]
+	(No symbol) [0x00007FF67C0E26E5]
+	(No symbol) [0x00007FF67C0D531C]
+	(No symbol) [0x00007FF67C0FEFEA]
+	(No symbol) [0x00007FF67C0D4BA1]
+	(No symbol) [0x00007FF67C0D4A71]
+	(No symbol) [0x00007FF67C0FF320]
+	(No symbol) [0x00007FF67C0D4BA1]
+	(No symbol) [0x00007FF67C117FB1]
+	(No symbol) [0x00007FF67C0FEDC3]
+	(No symbol) [0x00007FF67C0D3BDC]
+	(No symbol) [0x00007FF67C0D2DC6]
+	(No symbol) [0x00007FF67C0D4354]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C528E29+1319081]
+	(No symbol) [0x00007FF67C14BEE8]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C227AB1+33553]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C21FEEF+1871]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C527A43+1313987]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E4178+20232]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E0794+5412]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E088C+5660]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2D4541+740769]
+	BaseThreadInitThunk [0x00007FFD53A87614+20]
+	RtlUserThreadStart [0x00007FFD553C26A1+33]
+</msg>
+<status status="FAIL" starttime="20230612 00:24:34.127" endtime="20230612 00:24:35.379"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:34.127" endtime="20230612 00:24:35.379"/>
+</branch>
+<status status="FAIL" starttime="20230612 00:24:34.126" endtime="20230612 00:24:35.379"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:35.379" endtime="20230612 00:24:35.379"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:35.379" endtime="20230612 00:24:35.379"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${tipo}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:35.379" endtime="20230612 00:24:35.379"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:35.379" endtime="20230612 00:24:35.379"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:32.031" endtime="20230612 00:24:35.379"/>
+</kw>
+<kw name="E adiciono ao Carrinho" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:35.379" endtime="20230612 00:24:35.379"/>
+</kw>
+<kw name="E clico para visualizar o Carrinho com a camisa tipo &quot;&quot; e cor &quot;&quot;" library="CarrinhoSteps" sourcename="E clico para visualizar o Carrinho com a camisa tipo &quot;${tipo}&quot; e cor &quot;${cor}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.379" endtime="20230612 00:24:35.393"/>
+</kw>
+<kw name="E clico no botão Checkout" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:35.393" endtime="20230612 00:24:35.393"/>
+</kw>
+<kw name="E preencho o campo First Name com o dado &quot;&quot;" library="CarrinhoSteps" sourcename="E preencho o campo First Name com o dado &quot;${first_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.393" endtime="20230612 00:24:35.393"/>
+</kw>
+<kw name="E preencho o campo Last Name com o dado &quot;&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Last Name com o dado &quot;${last_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.394" endtime="20230612 00:24:35.394"/>
+</kw>
+<kw name="E preencho o campo Zip/Postal Code com o dado &quot;&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Zip/Postal Code com o dado &quot;${address_delivery}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.394" endtime="20230612 00:24:35.394"/>
+</kw>
+<kw name="E clico em Continuar para visualizar os detalhes da compra da camisa tipo &quot;&quot;, cor &quot;&quot; e preco &quot;&quot;" library="CarrinhoSteps" sourcename="E clico em Continuar para visualizar os detalhes da compra da camisa tipo &quot;${tipo}&quot;, cor &quot;${cor}&quot; e preco &quot;${preco}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.394" endtime="20230612 00:24:35.394"/>
+</kw>
+<kw name="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;1&quot;" library="CarrinhoSteps" sourcename="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;${qtde}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.394" endtime="20230612 00:24:35.395"/>
+</kw>
+<kw name="E visualizo o meio de pagamento do Carrinho - &quot;SauceCard #31337&quot;" library="CarrinhoSteps" sourcename="E visualizo o meio de pagamento do Carrinho - &quot;${meio_de_pagamento}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.395" endtime="20230612 00:24:35.395"/>
+</kw>
+<kw name="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;Free Pony Express Delivery!&quot;" library="CarrinhoSteps" sourcename="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;${forma_de_entrega}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.395" endtime="20230612 00:24:35.395"/>
+</kw>
+<kw name="E visualizo o total preco do Produto do Carrinho - &quot;15.99&quot;" library="CarrinhoSteps" sourcename="E visualizo o total preco do Produto do Carrinho - &quot;${preco_produto_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.396" endtime="20230612 00:24:35.396"/>
+</kw>
+<kw name="E visualizo a taxa de entrega do Produto do Carrinho - &quot;1.28&quot;" library="CarrinhoSteps" sourcename="E visualizo a taxa de entrega do Produto do Carrinho - &quot;${preco_taxa_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.396" endtime="20230612 00:24:35.396"/>
+</kw>
+<kw name="E visualizo o preco total finalizado do Produto do Carrinho - &quot;17.27&quot;" library="CarrinhoSteps" sourcename="E visualizo o preco total finalizado do Produto do Carrinho - &quot;${preco_total_finalizado}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:35.396" endtime="20230612 00:24:35.396"/>
+</kw>
+<kw name="Quando clico no botão Finish" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:35.397" endtime="20230612 00:24:35.397"/>
+</kw>
+<kw name="Então finalizo a compra dos produtos com sucesso!" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:35.397" endtime="20230612 00:24:35.397"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:27.626" endtime="20230612 00:24:35.398">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (483, -993)
+  (Session info: MicrosoftEdge=114.0.1823.43)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00007FF67C34B582+64226]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2DBB42+770978]
+	(No symbol) [0x00007FF67C09CC3C]
+	(No symbol) [0x00007FF67C0E82AA]
+	(No symbol) [0x00007FF67C0E5A33]
+	(No symbol) [0x00007FF67C0E3689]
+	(No symbol) [0x00007FF67C0E26E5]
+	(No symbol) [0x00007FF67C0D531C]
+	(No symbol) [0x00007FF67C0FEFEA]
+	(No symbol) [0x00007FF67C0D4BA1]
+	(No symbol) [0x00007FF67C0D4A71]
+	(No symbol) [0x00007FF67C0FF320]
+	(No symbol) [0x00007FF67C0D4BA1]
+	(No symbol) [0x00007FF67C117FB1]
+    [ Message content over the limit has been removed. ]
+	(No symbol) [0x00007FF67C0D4354]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C528E29+1319081]
+	(No symbol) [0x00007FF67C14BEE8]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C227AB1+33553]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C21FEEF+1871]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C527A43+1313987]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E4178+20232]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E0794+5412]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E088C+5660]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2D4541+740769]
+	BaseThreadInitThunk [0x00007FFD53A87614+20]
+	RtlUserThreadStart [0x00007FFD553C26A1+33]</status>
+</test>
+<test id="s1-t4" name="Cenário 1 - Realizar a compra de uma bolsa válida" line="77">
+<kw name="Logar rapido" library="LoginSteps">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 00:24:35.405" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230612 00:24:35.404" endtime="20230612 00:24:39.323"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:39.325" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:39.324" endtime="20230612 00:24:39.502"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:39.503" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:39.502" endtime="20230612 00:24:39.592"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:39.594" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<msg timestamp="20230612 00:24:39.617" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=114.0.1823.43)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00007FF67C34B582+64226]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2DBB42+770978]
+	(No symbol) [0x00007FF67C09CC3C]
+	(No symbol) [0x00007FF67C07671E]
+	(No symbol) [0x00007FF67C102E8F]
+	(No symbol) [0x00007FF67C11789F]
+	(No symbol) [0x00007FF67C0FEDC3]
+	(No symbol) [0x00007FF67C0D3BDC]
+	(No symbol) [0x00007FF67C0D2DC6]
+	(No symbol) [0x00007FF67C0D4354]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C528E29+1319081]
+	(No symbol) [0x00007FF67C14BEE8]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C227AB1+33553]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C21FEEF+1871]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C527A43+1313987]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E4178+20232]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E0794+5412]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E088C+5660]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2D4541+740769]
+	BaseThreadInitThunk [0x00007FFD53A87614+20]
+	RtlUserThreadStart [0x00007FFD553C26A1+33]
+</msg>
+<msg timestamp="20230612 00:24:39.647" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=114.0.1823.43)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00007FF67C34B582+64226]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2DBB42+770978]
+	(No symbol) [0x00007FF67C09CC3C]
+	(No symbol) [0x00007FF67C07671E]
+	(No symbol) [0x00007FF67C102E8F]
+	(No symbol) [0x00007FF67C11789F]
+	(No symbol) [0x00007FF67C0FEDC3]
+	(No symbol) [0x00007FF67C0D3BDC]
+	(No symbol) [0x00007FF67C0D2DC6]
+	(No symbol) [0x00007FF67C0D4354]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C528E29+1319081]
+	(No symbol) [0x00007FF67C14BEE8]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C227AB1+33553]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C21FEEF+1871]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C527A43+1313987]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E4178+20232]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E0794+5412]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E088C+5660]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2D4541+740769]
+	BaseThreadInitThunk [0x00007FFD53A87614+20]
+	RtlUserThreadStart [0x00007FFD553C26A1+33]
+</msg>
+<status status="FAIL" starttime="20230612 00:24:39.592" endtime="20230612 00:24:39.650"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:39.651" endtime="20230612 00:24:39.651"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:39.651" endtime="20230612 00:24:39.651"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:35.404" endtime="20230612 00:24:39.651"/>
+</kw>
+<kw name="Dado que estou na pagina de listagem de Produtos - carrinho" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:39.652" endtime="20230612 00:24:39.652"/>
+</kw>
+<kw name="E escolho uma bolsa do tipo &quot;Backpack&quot;" library="CarrinhoSteps" sourcename="E escolho uma bolsa do tipo &quot;${tipo}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.652" endtime="20230612 00:24:39.652"/>
+</kw>
+<kw name="E adiciono ao Carrinho" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:39.653" endtime="20230612 00:24:39.653"/>
+</kw>
+<kw name="E clico para visualizar o Carrinho com a bolsa tipo &quot;Backpack&quot;" library="CarrinhoSteps" sourcename="E clico para visualizar o Carrinho com a bolsa tipo &quot;${tipo}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.653" endtime="20230612 00:24:39.653"/>
+</kw>
+<kw name="E clico no botão Checkout" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:39.654" endtime="20230612 00:24:39.654"/>
+</kw>
+<kw name="E preencho o campo First Name com o dado &quot;Superman&quot;" library="CarrinhoSteps" sourcename="E preencho o campo First Name com o dado &quot;${first_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.654" endtime="20230612 00:24:39.654"/>
+</kw>
+<kw name="E preencho o campo Last Name com o dado &quot;Marvel&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Last Name com o dado &quot;${last_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.654" endtime="20230612 00:24:39.654"/>
+</kw>
+<kw name="E preencho o campo Zip/Postal Code com o dado &quot;Rua HQ/Filme, Olympo&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Zip/Postal Code com o dado &quot;${address_delivery}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.655" endtime="20230612 00:24:39.655"/>
+</kw>
+<kw name="E clico em Continuar para visualizar os detalhes da compra da bolsa tipo &quot;Backpack&quot;, preco &quot;29.99&quot;" library="CarrinhoSteps" sourcename="E clico em Continuar para visualizar os detalhes da compra da bolsa tipo &quot;${tipo}&quot;, preco &quot;${preco}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.655" endtime="20230612 00:24:39.655"/>
+</kw>
+<kw name="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;1&quot;" library="CarrinhoSteps" sourcename="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;${qtde}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.656" endtime="20230612 00:24:39.656"/>
+</kw>
+<kw name="E visualizo o meio de pagamento do Carrinho - &quot;SauceCard #31337&quot;" library="CarrinhoSteps" sourcename="E visualizo o meio de pagamento do Carrinho - &quot;${meio_de_pagamento}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.656" endtime="20230612 00:24:39.656"/>
+</kw>
+<kw name="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;Free Pony Express Delivery!&quot;" library="CarrinhoSteps" sourcename="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;${forma_de_entrega}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.656" endtime="20230612 00:24:39.657"/>
+</kw>
+<kw name="E visualizo o total preco do Produto do Carrinho - &quot;29.99&quot;" library="CarrinhoSteps" sourcename="E visualizo o total preco do Produto do Carrinho - &quot;${preco_produto_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.657" endtime="20230612 00:24:39.657"/>
+</kw>
+<kw name="E visualizo a taxa de entrega do Produto do Carrinho - &quot;2.40&quot;" library="CarrinhoSteps" sourcename="E visualizo a taxa de entrega do Produto do Carrinho - &quot;${preco_taxa_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.658" endtime="20230612 00:24:39.659"/>
+</kw>
+<kw name="E visualizo o preco total finalizado do Produto do Carrinho - &quot;32.39&quot;" library="CarrinhoSteps" sourcename="E visualizo o preco total finalizado do Produto do Carrinho - &quot;${preco_total_finalizado}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:39.659" endtime="20230612 00:24:39.659"/>
+</kw>
+<kw name="Quando clico no botão Finish" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:39.660" endtime="20230612 00:24:39.660"/>
+</kw>
+<kw name="Então finalizo a compra dos produtos com sucesso!" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:39.660" endtime="20230612 00:24:39.660"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:35.403" endtime="20230612 00:24:39.661">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=114.0.1823.43)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00007FF67C34B582+64226]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2DBB42+770978]
+	(No symbol) [0x00007FF67C09CC3C]
+	(No symbol) [0x00007FF67C07671E]
+	(No symbol) [0x00007FF67C102E8F]
+	(No symbol) [0x00007FF67C11789F]
+	(No symbol) [0x00007FF67C0FEDC3]
+	(No symbol) [0x00007FF67C0D3BDC]
+	(No symbol) [0x00007FF67C0D2DC6]
+	(No symbol) [0x00007FF67C0D4354]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C528E29+1319081]
+	(No symbol) [0x00007FF67C14BEE8]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C227AB1+33553]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C21FEEF+1871]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C527A43+1313987]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E4178+20232]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E0794+5412]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E088C+5660]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2D4541+740769]
+	BaseThreadInitThunk [0x00007FFD53A87614+20]
+	RtlUserThreadStart [0x00007FFD553C26A1+33]
+</status>
+</test>
+<test id="s1-t5" name="Cenário 2 - Realizar a compra de uma bolsa inválida" line="97">
+<kw name="Logar rapido" library="LoginSteps">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 00:24:39.668" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230612 00:24:39.667" endtime="20230612 00:24:43.548"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:43.552" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:43.549" endtime="20230612 00:24:43.719"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_senha}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:43.720" level="INFO">Typing text 'secret_sauce' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:43.719" endtime="20230612 00:24:43.842"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${botao_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:43.842" level="INFO">Clicking element '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230612 00:24:43.842" endtime="20230612 00:24:44.027"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:44.067" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:44.027" endtime="20230612 00:24:44.067"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:44.067" endtime="20230612 00:24:44.068"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:39.666" endtime="20230612 00:24:44.068"/>
+</kw>
+<kw name="Dado que estou na pagina de listagem de Produtos - carrinho" library="CarrinhoSteps">
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_paginaInicial}</var>
+<arg>${verifica_titulo}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 00:24:44.109" level="INFO">${titulo_paginaInicial} = Products</msg>
+<status status="PASS" starttime="20230612 00:24:44.076" endtime="20230612 00:24:44.109"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo_paginaInicial}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:44.109" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:44.109" endtime="20230612 00:24:44.109"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Products</arg>
+<arg>${titulo_paginaInicial}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 00:24:44.109" endtime="20230612 00:24:44.109"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${titulo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230612 00:24:44.110" level="INFO">Products</msg>
+<status status="PASS" starttime="20230612 00:24:44.110" endtime="20230612 00:24:44.110"/>
+</kw>
+<status status="PASS" starttime="20230612 00:24:44.075" endtime="20230612 00:24:44.110"/>
+</kw>
+<kw name="E escolho uma bolsa do tipo &quot;$¨$¨#$&quot;" library="CarrinhoSteps" sourcename="E escolho uma bolsa do tipo &quot;${tipo}&quot;">
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 00:24:44.283" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230612 00:24:44.283" level="FAIL">Page should have contained element 'xpath=//*[contains(text(),'$¨$¨#$')]' but did not.</msg>
+<status status="FAIL" starttime="20230612 00:24:44.111" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=//*[contains(text(),'${tipo}')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>Page Should Contain Element</arg>
+<arg>xpath=//*[contains(text(),'${tipo}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Status}' == 'True'">
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${tipo}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</branch>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${titulo_produto_details}</var>
+<arg>xpath=/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[contains(text(),'${tipo}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>xpath=//*[contains(text(),'${tipo}')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:44.110" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="E adiciono ao Carrinho" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:44.283" endtime="20230612 00:24:44.283"/>
+</kw>
+<kw name="E clico para visualizar o Carrinho com a bolsa tipo &quot;$¨$¨%#&quot;" library="CarrinhoSteps" sourcename="E clico para visualizar o Carrinho com a bolsa tipo &quot;${tipo}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.292" endtime="20230612 00:24:44.292"/>
+</kw>
+<kw name="E clico no botão Checkout" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:44.298" endtime="20230612 00:24:44.298"/>
+</kw>
+<kw name="E preencho o campo First Name com o dado &quot;Superman&quot;" library="CarrinhoSteps" sourcename="E preencho o campo First Name com o dado &quot;${first_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.299" endtime="20230612 00:24:44.299"/>
+</kw>
+<kw name="E preencho o campo Last Name com o dado &quot;Marvel&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Last Name com o dado &quot;${last_name}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.301" endtime="20230612 00:24:44.301"/>
+</kw>
+<kw name="E preencho o campo Zip/Postal Code com o dado &quot;Rua HQ/Filme, Olympo&quot;" library="CarrinhoSteps" sourcename="E preencho o campo Zip/Postal Code com o dado &quot;${address_delivery}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.301" endtime="20230612 00:24:44.301"/>
+</kw>
+<kw name="E clico em Continuar para visualizar os detalhes da compra da bolsa tipo &quot;Backpack&quot;, preco &quot;29.99&quot;" library="CarrinhoSteps" sourcename="E clico em Continuar para visualizar os detalhes da compra da bolsa tipo &quot;${tipo}&quot;, preco &quot;${preco}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.302" endtime="20230612 00:24:44.302"/>
+</kw>
+<kw name="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;1&quot;" library="CarrinhoSteps" sourcename="E visualizo a quantidade do produto escolhido no Carrinho de Compras - &quot;${qtde}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.302" endtime="20230612 00:24:44.302"/>
+</kw>
+<kw name="E visualizo o meio de pagamento do Carrinho - &quot;SauceCard #31337&quot;" library="CarrinhoSteps" sourcename="E visualizo o meio de pagamento do Carrinho - &quot;${meio_de_pagamento}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.302" endtime="20230612 00:24:44.302"/>
+</kw>
+<kw name="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;Free Pony Express Delivery!&quot;" library="CarrinhoSteps" sourcename="E visualizo a forma de entrega dos Produtos do Carrinho - &quot;${forma_de_entrega}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.303" endtime="20230612 00:24:44.303"/>
+</kw>
+<kw name="E visualizo o total preco do Produto do Carrinho - &quot;29.99&quot;" library="CarrinhoSteps" sourcename="E visualizo o total preco do Produto do Carrinho - &quot;${preco_produto_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.303" endtime="20230612 00:24:44.303"/>
+</kw>
+<kw name="E visualizo a taxa de entrega do Produto do Carrinho - &quot;2.40&quot;" library="CarrinhoSteps" sourcename="E visualizo a taxa de entrega do Produto do Carrinho - &quot;${preco_taxa_carrinho}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.303" endtime="20230612 00:24:44.303"/>
+</kw>
+<kw name="E visualizo o preco total finalizado do Produto do Carrinho - &quot;32.39&quot;" library="CarrinhoSteps" sourcename="E visualizo o preco total finalizado do Produto do Carrinho - &quot;${preco_total_finalizado}&quot;">
+<status status="NOT RUN" starttime="20230612 00:24:44.304" endtime="20230612 00:24:44.304"/>
+</kw>
+<kw name="Quando clico no botão Finish" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:44.304" endtime="20230612 00:24:44.304"/>
+</kw>
+<kw name="Então finalizo a compra dos produtos com sucesso!" library="CarrinhoSteps">
+<status status="NOT RUN" starttime="20230612 00:24:44.304" endtime="20230612 00:24:44.304"/>
+</kw>
+<status status="FAIL" starttime="20230612 00:24:39.665" endtime="20230612 00:24:44.305">Page should have contained element 'xpath=//*[contains(text(),'$¨$¨#$')]' but did not.</status>
+</test>
+<test id="s1-t6" name="Cenário 3 - Realizar a compra de uma bolsa nula" line="118">
+<kw name="Logar rapido" library="LoginSteps">
+<arg>standard_user</arg>
+<arg>secret_sauce</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 00:24:44.308" level="INFO">Opening browser 'Edge' to base url 'https://www.saucedemo.com/'.</msg>
+<errors>
+<msg timestamp="20230612 00:24:39.617" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=114.0.1823.43)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00007FF67C34B582+64226]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2DBB42+770978]
+	(No symbol) [0x00007FF67C09CC3C]
+	(No symbol) [0x00007FF67C07671E]
+	(No symbol) [0x00007FF67C102E8F]
+	(No symbol) [0x00007FF67C11789F]
+	(No symbol) [0x00007FF67C0FEDC3]
+	(No symbol) [0x00007FF67C0D3BDC]
+	(No symbol) [0x00007FF67C0D2DC6]
+	(No symbol) [0x00007FF67C0D4354]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C528E29+1319081]
+	(No symbol) [0x00007FF67C14BEE8]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C227AB1+33553]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C21FEEF+1871]
+	Microsoft::Applications::Events::ILogManager::DispatchEventBroadcast [0x00007FF67C527A43+1313987]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E4178+20232]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E0794+5412]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF67C2E088C+5660]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF67C2D4541+740769]
+	BaseThreadInitThunk [0x00007FFD53A87614+20]
+	RtlUserThreadStart [0x00007FFD553C26A1+33]
+</msg>
+<msg timestamp="20230612 00:24:47.346" level="ERROR">Execution stopped by user.</msg>
+</errors>
+</robot>

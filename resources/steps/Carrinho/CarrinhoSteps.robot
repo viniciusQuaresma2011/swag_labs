@@ -1,229 +1,207 @@
 *** Settings ***
 
 Resource    ../../base/Base.robot
+Library    String
 
 
 *** Variables ***
+###### GlobalAttributes #########
 
-
+#Titulo
 ${verifica_titulo}    //*[@id="header_container"]/div[2]/span[1]
-${titulo}             PRODUCTS
 
-${produto_escolhido}    //*[@id="item_4_title_link"]/div[1]
+#Ordenaçao
+${ordenacao}    //*[@class="product_sort_container"]
 
-${produto_escolhido_2}    //*[@id="item_0_title_link"]/div[1]
+${ordenacao_menor_maior}    //*[@class="product_sort_container"]/option[3]
 
-${produto_escolhido_3}    //*[@id="item_1_title_link"]/div[1]
+#HomePage
+${retornar_home}    //*[@id="back-to-products"]   
 
+#Produto
+${produto}       //*[@class="inventory_item_label"]
+${produto_container}        //*[@class="inventory_item"]
+${produto_container_titulo}     //*[@class="inventory_item_name"]
+${produto_container_desc}     //*[@class="inventory_item_desc"]
+${produto_container_preco}     //*[@class="inventory_item_price"]
 
+${produto_container_preco_1}      xpath=/html/body/div[1]/div/div/div[2]/div/div[1]/div[3]/div[2]/div[2]/div
+${produto_container_preco_2}      xpath=/html/body/div[1]/div/div/div[2]/div/div[1]/div[4]/div[2]/div[2]/div
 
+# Etapa: Checkout
+${produto_container_checkout_preco_1}       xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]
+${produto_container_checkout_preco_2}       xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]
+#####################################################
 
-
-### Produto 1
-${produto_escolhido_titulo}    //*[@id="inventory_item_container"]/div[1]/div[1]/div[2]/div[1]
-${produto_titulo}              Sauce Labs Backpack
-
-${produto_escolhido_preco}    //*[@id="inventory_item_container"]/div[1]/div[1]/div[2]/div[3]
-${produto_preco}              $29.99
-##############################################################################################
-
-### Produto 2
-${produto_titulo_2}              Sauce Labs Bike Light
-
-${produto_preco_2}              $9.99
-##############################################################################################
-
-### Produto 3
-${produto_titulo_3}              Sauce Labs Bolt T-Shirt
-
-${produto_preco_3}              $15.99
-##############################################################################################
+#Carrinho
+${add_cart}      xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/button[1]
 
 ${botao_voltar}     //*[@id="back-to-products"]
+${botao_checkout}    //*[@id="checkout"]
 
-${add_cart}      //*[@id="add-to-cart-sauce-labs-backpack"]
-${add_cart_2}    //*[@id="add-to-cart-sauce-labs-bike-light"]
-${add_cart_3}    //*[@id="add-to-cart-sauce-labs-bolt-t-shirt"]
+${botao_finalizar}    //*[@id="finish"]
 
+#Meio de Pagamento
+${info_pagamento}    //*[@id="checkout_summary_container"]/div[1]/div[2]/div[2]
 
-########## Produtos no Carrinho
+#Preço total do Carrinho
+${total_carrinho}    //*[@id="checkout_summary_container"]/div/div[1]/div[3]/div[2]/div[2]/div
+
+#Taxa do Carrinho
+${taxa_carrinho}    //*[@id="checkout_summary_container"]/div[1]/div[2]/div[7]
+
+#Preço total FINALIZADO do Carrinho
+${total_finalizado}    //*[@id="checkout_summary_container"]/div[1]/div[2]/div[8]
+
+########################################################################
+
+#Produtos no Carrinho
 ${show_cart}    //*[@id="shopping_cart_container"]/a[1]
 
 ${cart_produto_titulo}    //*[@id="item_4_title_link"]/div[1]
 ${cart_produto_preco}     //*[@id="cart_contents_container"]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]
+${qtde_produto_carrinho}    //*[@id="checkout_summary_container"]/div[1]/div[1]/div[3]/div[1]
 
-${cart_produto_titulo_2}    //*[@id="item_0_title_link"]/div[1]
-${cart_produto_preco_2}     //*[@id="cart_contents_container"]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]
+# Etapa: Checkout Final
+${qtde_produto_carrinho_menorpreco_1}     //*[@id="checkout_summary_container"]/div[1]/div[1]/div[3]/div[1]
+${qtde_produto_carrinho_menorpreco_2}     //*[@id="checkout_summary_container"]/div[1]/div[1]/div[4]/div[1]
 
-${cart_produto_titulo_3}    //*[@id="item_1_title_link"]/div[1]
-${cart_produto_preco_3}     //*[@id="cart_contents_container"]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]
-############################################################################################################
+${preco_total_dois_produtos_carrinho}       //*[@id="checkout_summary_container"]/div[1]/div[2]/div[6]
+##############################################################################
 
-${botao_checkout}    //*[@id="checkout"]
 
+#Endereço de entrega
 ${first_name_input}          //*[@id="first-name"]
 ${last_name_input}           //*[@id="last-name"]
 ${address_delivery_input}    //*[@id="postal-code"]
+
+
 
 ${botao_continue}    //*[@id="continue"]
 
 ${produto_escolhido_carrinho_titulo}    //*[@id="item_4_title_link"]/div[1]
 ${produto_escolhido_carrinho_preco}     //*[@id="checkout_summary_container"]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]
 
-${produto_escolhido_carrinho_titulo_2}    //*[@id="item_0_title_link"]/div[1]
-${produto_escolhido_carrinho_preco_2}     //*[@id="checkout_summary_container"]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]
-
-${produto_escolhido_carrinho_titulo_3}    //*[@id="item_1_title_link"]/div[1]
-${produto_escolhido_carrinho_preco_3}     //*[@id="checkout_summary_container"]/div[1]/div[1]/div[5]/div[2]/div[2]/div[1]
-
-
-
-${qtde_produto_carrinho}    //*[@id="checkout_summary_container"]/div[1]/div[1]/div[3]/div[1]
-${qtde}                     1
-
-${qtde_produto_carrinho_2}    //*[@id="checkout_summary_container"]/div[1]/div[1]/div[4]/div[1]
-${qtde_2}                     1
-
-${qtde_produto_carrinho_3}    //*[@id="checkout_summary_container"]/div[1]/div[1]/div[5]/div[1]
-${qtde_3}                     1
-
-
-
-${info_pagamento}    //*[@id="checkout_summary_container"]/div[1]/div[2]/div[2]
-${pagamento}         SauceCard #31337
-
-
-#### ok
 ${info_entrega}    //*[@id="checkout_summary_container"]/div[1]/div[2]/div[4]
-${entrega}         FREE PONY EXPRESS DELIVERY!
-#### ok
-
-#### ok
-${total_carrinho}    //*[@id="checkout_summary_container"]/div/div[1]/div[3]/div[2]/div[2]/div
-${total_carrinho_2}    //*[@id="checkout_summary_container"]/div[1]/div[2]/div[5]
-
-${total}             $29.99
-${total_2}           $55.97
-#### ok
+##############################################################################################
 
 
-
-#### ok
-${taxa_carrinho}    //*[@id="checkout_summary_container"]/div/div[2]/div[6]
-${taxa}             Tax: $2.40
-${taxa_2}             Tax: $4.48
-
-#### ok
-
-#### ok
-${total_finalizado}    //*[@id="checkout_summary_container"]/div/div[2]/div[7]
-${finalizado}          $32.39
-${finalizado_2}          $60.45
-#### ok
-
-#### ok
-${botao_finalizar}    //*[@id="finish"]
-#### ok
-
-#### ok
+#Mensagem de Verificação
 ${sucess_message}    //*[@id="checkout_complete_container"]/h2[1]
-${message}           THANK YOU FOR YOUR ORDER
-#### ok
+${message}           Thank you for your order!
 
-#### ok
+
 ${details_message_success}    //*[@id="checkout_complete_container"]/div[1]
 ${details}                    Your order has been dispatched, and will arrive just as fast as the pony can get there!
-#### ok
+#####################################################################################
 
-${retornar_home}    //*[@id="back-to-products"]    
 
 *** Keywords ***
 Dado que estou na pagina de listagem de Produtos - carrinho
 
     ${titulo_paginaInicial}    Get Text     ${verifica_titulo}
-    Should Be Equal            ${titulo}    ${titulo_paginaInicial}
-
-E escolho um produto
-    Click Element    ${produto_escolhido}
-
-    ${titulo_String}    Get Text             ${produto_escolhido_titulo}
-    Should Be Equal     ${produto_titulo}    ${titulo_String} 
+    Log      ${titulo_paginaInicial} 
+    Should Be Equal            Products     ${titulo_paginaInicial}
+    Log     ${titulo}
 
 
-    ${preco_String}    Get Text            ${produto_escolhido_preco}
-    Should Be Equal    ${produto_preco}    ${preco_String}
+E escolho uma camisa do tipo "${tipo}" e com a cor "${cor}"
+   
+    Execute JavaScript      window.scrollTo(0, document.body.scrollHeight)
 
-E escolho mais de um produto
-    Click Element    ${produto_escolhido}
+    Sleep   2s
 
-    ${titulo_String}    Get Text             ${produto_escolhido_titulo}
-    Should Be Equal     ${produto_titulo}    ${titulo_String} 
+    Page Should Contain Element    xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')] 
+    ${titulo_produto_details}       Get Text    xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]
+
+    ${Status}=     Run Keyword And Return Status   Page Should Contain Element    xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]
+
+    IF   '${Status}' == 'True'    
+        Click Element      //*[contains(text(),'${cor}')]
+    END
     
+    Sleep   2s
 
-    ${preco_String}    Get Text            ${produto_escolhido_preco}
-    Should Be Equal    ${produto_preco}    ${preco_String}
+    ${titulo_produto_details}       Get Text    xpath=/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[1]
+    Click Element            //*[contains(text(),'${tipo}')]
 
-    Click Element    ${botao_voltar}
+    Page Should Contain Element    xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]  
 
-    Click Element    ${produto_escolhido_2}
 
-    ${titulo_String_2}    Get Text             ${produto_escolhido_titulo}
-    Should Be Equal     ${produto_titulo_2}    ${titulo_String_2} 
+E escolho uma bolsa do tipo "${tipo}"
 
-    ${preco_String_2}    Get Text            ${produto_escolhido_preco}
-    Should Be Equal    ${produto_preco_2}    ${preco_String_2}
+   
 
-    Click Element   ${botao_voltar}
+    Page Should Contain Element    xpath=//*[contains(text(),'${tipo}')] 
+    ${titulo_produto_details}       Get Text    xpath=//*[contains(text(),'${tipo}')]
 
-    Click Element    ${produto_escolhido_3}
+    ${Status}=     Run Keyword And Return Status   Page Should Contain Element    xpath=//*[contains(text(),'${tipo}')]
 
-    ${titulo_String_3}    Get Text             ${produto_escolhido_titulo}
-    Should Be Equal     ${produto_titulo_3}    ${titulo_String_3} 
+    IF   '${Status}' == 'True'    
+        Click Element      //*[contains(text(),'${tipo}')]
+    END
+    
+    Sleep   2s
 
-    ${preco_String_3}    Get Text            ${produto_escolhido_preco}
-    Should Be Equal    ${produto_preco_3}    ${preco_String_3}
+    ${titulo_produto_details}       Get Text    xpath=/html/body/div[1]/div/div/div[2]/div/div/div[2]/div[1]
+    Click Element            //*[contains(text(),'${tipo}')]
 
-    Click Element   ${botao_voltar}
+    Page Should Contain Element    xpath=//*[contains(text(),'${tipo}')]  
+
 
 E adiciono ao Carrinho
     Click Element    ${add_cart}
 
-E adiciono os produtos escolhidos ao Carrinho
-    Click Element    ${add_cart}
-    Click Element    ${add_cart_2}
-    Click Element    ${add_cart_3}
 
-E clico para visualizar o Carrinho com os produtos Escolhidos
-    Click Element       ${show_cart}
-    ${titulo_String}    Get Text             ${cart_produto_titulo}
-    Should Be Equal     ${produto_titulo}    ${titulo_String} 
 
-    ${preco_String}    Get Text            ${cart_produto_preco}
-    Should Be Equal    ${produto_preco}    ${preco_String}
 
-    
-    ${titulo_String_2}    Get Text             ${cart_produto_titulo_2}
-    Should Be Equal     ${produto_titulo_2}    ${titulo_String_2} 
-
-    ${preco_String_2}    Get Text            ${cart_produto_preco_2}
-    Should Be Equal    ${produto_preco_2}    ${preco_String_2}
-
-    ${titulo_String_3}    Get Text             ${cart_produto_titulo_3}
-    Should Be Equal     ${produto_titulo_3}    ${titulo_String_3} 
-
-    ${preco_String_3}    Get Text            ${cart_produto_preco_3}
-    Should Be Equal    ${produto_preco_3}    ${preco_String_3}
 
    
 
 
-E clico para visualizar o Carrinho com o produto Escolhido
+E clico para visualizar o Carrinho com a camisa tipo "${tipo}" e cor "${cor}"
     Click Element       ${show_cart}
-    ${titulo_String}    Get Text             ${cart_produto_titulo}
-    Should Be Equal     ${produto_titulo}    ${titulo_String} 
 
-    ${preco_String}    Get Text            ${cart_produto_preco}
-    Should Be Equal    ${produto_preco}    ${preco_String}
+
+    ${produto_detalhes_visualizar}       Get Text    xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]
+    Log     ${produto_detalhes_visualizar}
+    
+    ${tipo_editado}    Remove String     ${produto_detalhes_visualizar}    Test.allTheThings()  (Red)
+    Log     ${tipo_editado} 
+
+    ${cor_editado}    Remove String     ${produto_detalhes_visualizar}    Test.allTheThings() T-Shirt ()
+    Log     ${cor_editado}
+
+    ${tipo_editado_clean}     Evaluate    "${tipo_editado}".split(" ")[1]
+    Log      ${tipo_editado_clean}
+
+    ${cor_editado_clean}     Evaluate    "${cor_editado}".split(" ")[2]
+    Log      ${cor_editado_clean}
+
+    ${cor_editado_clean_parenteses}    Remove String     ${cor_editado_clean}    (   )
+    Log         ${cor_editado_clean_parenteses} 
+
+    Should Be Equal     ${tipo}     ${tipo_editado_clean} 
+    Should Be Equal    ${cor}   ${cor_editado_clean_parenteses}
+
+E clico para visualizar o Carrinho com a bolsa tipo "${tipo}"
+    Click Element       ${show_cart}
+
+
+    ${produto_detalhes_visualizar}       Get Text    xpath=//*[contains(text(),'${tipo}')]
+    Log     ${produto_detalhes_visualizar}
+    
+    ${tipo_editado}    Remove String     ${produto_detalhes_visualizar}    Sauce Labs 
+    Log     ${tipo_editado} 
+
+    ${tipo_editado_clean}     Evaluate    "${tipo_editado}".split(" ")[1]
+    Log      ${tipo_editado_clean}
+
+
+    Should Be Equal     ${tipo}     ${tipo_editado_clean} 
+    
+
+
 
 E clico no botão Checkout
     Click Element    ${botao_checkout}
@@ -237,91 +215,114 @@ E preencho o campo Last Name com o dado "${last_name}"
 E preencho o campo Zip/Postal Code com o dado "${address_delivery}"
     Input Text    ${address_delivery_input}    ${address_delivery}
 
-E clico em Continuar para visualizar os detalhes da compra
+E clico em Continuar para visualizar os detalhes da compra da camisa tipo "${tipo}", cor "${cor}" e preco "${preco}" 
     Click Element    ${botao_continue}
 
-    ${titulo_String_carrinho}    Get Text             ${produto_escolhido_carrinho_titulo}
-    Should Be Equal              ${produto_titulo}    ${titulo_String_carrinho}
+    ${preco_produto_escolhido}      Get Text    ${produto_escolhido_carrinho_preco} 
+    Log     ${preco_produto_escolhido}
 
-    ${preco_String_carrinho}    Get Text            ${produto_escolhido_carrinho_preco}
-    Should Be Equal             ${produto_preco}    ${preco_String_carrinho}
+    ${preco_produto_escolhido_clean}        Remove String       ${preco_produto_escolhido}    $
 
-E clico em Continuar para visualizar os detalhes da compra Dos Produtos
+   ${produto_detalhes_visualizar}       Get Text    xpath=//*[contains(text(),'${tipo}') and contains(text(),'${cor}')]
+    Log     ${produto_detalhes_visualizar}
+    
+    ${tipo_editado}    Remove String     ${produto_detalhes_visualizar}    Test.allTheThings()  (Red)
+    Log     ${tipo_editado} 
+
+    ${cor_editado}    Remove String     ${produto_detalhes_visualizar}    Test.allTheThings() T-Shirt ()
+    Log     ${cor_editado}
+
+    ${tipo_editado_clean}     Evaluate    "${tipo_editado}".split(" ")[1]
+    Log      ${tipo_editado_clean}
+
+    ${cor_editado_clean}     Evaluate    "${cor_editado}".split(" ")[2]
+    Log      ${cor_editado_clean}
+
+    ${cor_editado_clean_parenteses}    Remove String     ${cor_editado_clean}    (   )
+    Log         ${cor_editado_clean_parenteses} 
+
+    Should Be Equal     ${tipo}     ${tipo_editado_clean} 
+    Should Be Equal    ${cor}       ${cor_editado_clean_parenteses}
+    Should Be Equal    ${preco}     ${preco_produto_escolhido_clean}  
+
+E clico em Continuar para visualizar os detalhes da compra da bolsa tipo "${tipo}", preco "${preco}"
     Click Element    ${botao_continue}
 
-    ${titulo_String_carrinho}    Get Text             ${produto_escolhido_carrinho_titulo}
-    Should Be Equal              ${produto_titulo}    ${titulo_String_carrinho}
+    ${preco_produto_escolhido}      Get Text    ${produto_escolhido_carrinho_preco} 
+    Log     ${preco_produto_escolhido}
 
-    ${preco_String_carrinho}    Get Text            ${produto_escolhido_carrinho_preco}
-    Should Be Equal             ${produto_preco}    ${preco_String_carrinho}
+    ${preco_produto_escolhido_clean}        Remove String       ${preco_produto_escolhido}    $
 
-    ${titulo_String_carrinho_2}    Get Text             ${produto_escolhido_carrinho_titulo_2}
-    Should Be Equal              ${produto_titulo_2}    ${titulo_String_carrinho_2}
-
-    ${preco_String_carrinho_2}    Get Text            ${produto_escolhido_carrinho_preco_2}
-    Should Be Equal             ${produto_preco_2}    ${preco_String_carrinho_2}
-
-    ${titulo_String_carrinho_3}    Get Text             ${produto_escolhido_carrinho_titulo_3}
-    Should Be Equal              ${produto_titulo_3}    ${titulo_String_carrinho_3}
-
-    ${preco_String_carrinho_3}    Get Text            ${produto_escolhido_carrinho_preco_3}
-    Should Be Equal             ${produto_preco_3}    ${preco_String_carrinho_3}
+   ${produto_detalhes_visualizar}       Get Text    xpath=//*[contains(text(),'${tipo}')]
+    Log     ${produto_detalhes_visualizar}
+    
+    ${tipo_editado}    Remove String     ${produto_detalhes_visualizar}    Sauce Labs 
+    Log     ${tipo_editado} 
 
 
+    ${tipo_editado_clean}     Evaluate    "${tipo_editado}".split(" ")[1]
+    Log      ${tipo_editado_clean}
+
+
+    Should Be Equal     ${tipo}     ${tipo_editado_clean} 
+    Should Be Equal    ${preco}     ${preco_produto_escolhido_clean}  
 
 
 
-E visualizo a quantidade de produtos do Carrinho
+
+
+E visualizo a quantidade do produto escolhido no Carrinho de Compras - "${qtde}"
     ${qtde_String_carrinho}    Get Text    ${qtde_produto_carrinho}
     Should Be Equal            ${qtde}     ${qtde_String_carrinho}
 
-E visualizo a quantidade dos produtos Adicionados ao Carrinho
-    ${qtde_String_carrinho}    Get Text    ${qtde_produto_carrinho}
-    Should Be Equal            ${qtde}     ${qtde_String_carrinho}
-
-    ${qtde_String_carrinho_2}    Get Text    ${qtde_produto_carrinho_2}
-    Should Be Equal            ${qtde_2}     ${qtde_String_carrinho_2}
-
-    ${qtde_String_carrinho_3}    Get Text    ${qtde_produto_carrinho_3}
-    Should Be Equal            ${qtde_3}     ${qtde_String_carrinho_3}
 
 
 
 
-E visualizo a forma de pagamento do Carrinho
+
+E visualizo o meio de pagamento do Carrinho - "${meio_de_pagamento}"
     ${pagamento_String_carrinho}    Get Text        ${info_pagamento}
-    Should Be Equal                 ${pagamento}    ${pagamento_String_carrinho}
+    Should Be Equal                 ${meio_de_pagamento}    ${pagamento_String_carrinho}
 
-E visualizo a forma de entrega dos Produtos do Carrinho
+E visualizo a forma de entrega dos Produtos do Carrinho - "${forma_de_entrega}"
     ${entrega_String_carrinho}    Get Text      ${info_entrega}
-    Should Be Equal               ${entrega}    ${entrega_String_carrinho}
+    Should Be Equal               ${forma_de_entrega}    ${entrega_String_carrinho}
 
-E visualizo o total preco dos Produtos do Carrinho
+E visualizo o total preco do Produto do Carrinho - "${preco_produto_carrinho}"
     ${total_String_carrinho}    Get Text    ${total_carrinho}
-    Should Be Equal             ${total}    ${total_String_carrinho}
+
+    ${preco_total_produto_escolhido_carrinho_clean}        Remove String       ${total_String_carrinho}    $
+    Should Be Equal             ${preco_produto_carrinho}    ${preco_total_produto_escolhido_carrinho_clean}
 
 E visualizo o total preco dos Produtos Adicionados ao Carrinho
     ${total_String_carrinho_2}    Get Text    ${total_carrinho_2}
     Page Should Contain             ${total_2}    ${total_String_carrinho_2}
 
 
-E visualizo a taxa de entrega dos Produtos do Carrinho
+E visualizo a taxa de entrega do Produto do Carrinho - "${preco_taxa_carrinho}"
     Wait Until Element Is Visible    ${taxa_carrinho}
     ${taxa_String_carrinho}          Get Text            ${taxa_carrinho}
-    Should Be Equal                  ${taxa}             ${taxa_String_carrinho}
 
-E visualizo a taxa de entrega dos Produtos Adicionados ao Carrinho
-    Wait Until Element Is Visible    ${taxa_carrinho}
-    ${taxa_String_carrinho_2}          Get Text            ${taxa_carrinho}
-    Should Be Equal                  ${taxa_2}             ${taxa_String_carrinho_2}
+    ${preco_taxa_produto_escolhido_carrinho_clean}        Remove String       ${taxa_String_carrinho}    Tax: $
+    Should Be Equal             ${preco_taxa_carrinho}    ${preco_taxa_produto_escolhido_carrinho_clean}
 
-E visualizo o total preco finalizado dos Produtos do Carrinho
-    ${finalizado_String_carrinho}    Get Text         ${total_finalizado}
-    Page Should Contain              ${finalizado}    ${finalizado_String_carrinho}
+    
 
-E visualizo o total preco finalizado dos Produtos Adicionados ao Carrinho
-    ${finalizado_String_carrinho_2}    Get Text         ${total_finalizado}
-    Page Should Contain              ${finalizado_2}    ${finalizado_String_carrinho_2}
+
+
+
+
+
+
+
+E visualizo o preco total finalizado do Produto do Carrinho - "${preco_total_finalizado}"
+    ${preco_total_finalizado_carrinho_clean}    Get Text         ${total_finalizado}
+
+
+    ${preco_total_finalizado_escolhido_carrinho_clean}        Remove String       ${preco_total_finalizado_carrinho_clean}    Total: $
+    Should Be Equal             ${preco_total_finalizado}    ${preco_total_finalizado_escolhido_carrinho_clean}
+
+
 
 Quando clico no botão Finish
     Click Element    ${botao_finalizar}
@@ -339,11 +340,94 @@ Então finalizo a compra dos produtos com sucesso!
 Então o produto escolhido está no carrinho!
     Close Browser
 
-Então os produtos escolhidos estão no carrinho!
-    Close Browser
 
 
 
 
 
 
+#Keywords Personalizadas
+E ordeno os valores dos produtos do menor para o maior
+    Click Element   ${ordenacao}
+    Sleep   2s
+    Click Element   ${ordenacao_menor_maior}
+
+    Sleep   2s
+
+E adiciono ao Carrinho os dois primeiros produtos com menor preco
+    
+    ${preco_produto_container}      Get Text    ${produto_container_preco}
+
+    ${preco_produto_container_clean}    Remove String     ${preco_produto_container}    $
+
+    IF  ${preco_produto_container_clean}<10
+        Click Element      xpath=//div[@class='pricebar']/button
+
+        Execute JavaScript      window.scrollTo(0, 120)
+      
+        Click Element      xpath=/html/body/div[1]/div/div/div[2]/div/div/div/div[2]/div[2]/div[2]/button
+     
+    END
+
+E clico para visualizar o Carrinho com os dois produtos adicionados pelo menor preco
+    Click Element       ${show_cart}
+
+  
+
+    ${preco_produto_container_1}      Get Text    ${produto_container_preco_1}
+    ${preco_produto_container_clean_1}    Remove String     ${preco_produto_container_1}    $
+
+    ${preco_produto_container_2}      Get Text    ${produto_container_preco_2}
+    ${preco_produto_container_clean_2}    Remove String     ${preco_produto_container_2}    $
+
+
+    Should Be True      ${preco_produto_container_clean_1}<10
+    Should Be True      ${preco_produto_container_clean_2}<10
+    Log         ${preco_produto_container_clean_1}
+    Log         ${preco_produto_container_clean_2}
+
+E clico em Continuar para visualizar os detalhes da compra dos dois produtos com menor preço
+    Click Element    ${botao_continue}
+
+    ${preco_produto_escolhido_1}      Get Text    ${produto_container_checkout_preco_1} 
+    Log     ${preco_produto_escolhido_1}
+
+    ${preco_produto_escolhido_clean_1}        Remove String       ${preco_produto_escolhido_1}    $
+    
+    
+    ${preco_produto_escolhido_2}      Get Text    ${produto_container_checkout_preco_2} 
+    Log     ${preco_produto_escolhido_2}
+
+    ${preco_produto_escolhido_clean_2}        Remove String       ${preco_produto_escolhido_2}    $
+
+    Should Be True     ${preco_produto_escolhido_clean_1}<10
+    Should Be True     ${preco_produto_escolhido_clean_2}<10
+
+E visualizo a quantidade dos produtos Adicionados ao Carrinho de Compras pelo menor preco
+    ${qtde_String_carrinho_final_1}    Get Text    ${qtde_produto_carrinho_menorpreco_1}
+    Should Be Equal          1      ${qtde_String_carrinho_final_1}
+
+    ${qtde_String_carrinho_final_2}    Get Text    ${qtde_produto_carrinho_menorpreco_1}
+    Should Be Equal          1      ${qtde_String_carrinho_final_2}
+
+E visualizo a taxa de entrega dos dois Produtos Adicionados ao Carrinho
+   Wait Until Element Is Visible    ${taxa_carrinho}
+    ${taxa_String_carrinho}          Get Text            ${taxa_carrinho}
+
+    ${taxa_String}        Remove String       ${taxa_String_carrinho}    Tax: $
+    Should Be Equal             1.44        ${taxa_String}
+
+E visualizo o total preco dos dois Produtos do Carrinho
+    ${preco_final_produto_carrinho}     Get Text    ${preco_total_dois_produtos_carrinho}
+    Log     ${preco_final_produto_carrinho}
+
+E visualizo o preco total finalizado dos dois Produtos do Carrinho
+    ${preco_total_finalizado_carrinho_clean}    Get Text         ${total_finalizado}
+
+
+    ${preco_total_finalizado_escolhido_carrinho_clean}        Remove String       ${preco_total_finalizado_carrinho_clean}    Total: $
+    Should Be Equal             19.42    ${preco_total_finalizado_escolhido_carrinho_clean}
+
+
+
+    
