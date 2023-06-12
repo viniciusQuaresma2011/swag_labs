@@ -16,7 +16,7 @@ ${mensagem_erro}             Epic sadface: Sorry, this user has been locked out.
 
 *** Keywords ***
 Dado que estou na pagina de Login do Swag Labs
-    Open Browser    ${URL}    Chrome
+    Open Browser    ${URL}    Edge
 
 E preencho o campo Username com "${email}"
     Input Text    ${input_username}    ${email}
