@@ -20,11 +20,14 @@ python3 -m pip install robotframework && pip install robotframework-requests && 
     && pip install idna && pip install requests[security]
     
 
-5º Passo: Após a instalacao acima, abra o Terminal e execute o código abaixo:
+5º Passo: Após a instalacao acima, Se caso nao possua o WebDriver,
+realize o donwload do EdgeDrive.exe(na versão do navegador de sua preferência),
+configure o WebDrive na variável de ambiente do seu Dispositivo,
+abra o Terminal e execute o código abaixo:
 
 python -m robot Carrinho.robot
 
-5º Passo: Pronto, agora é só conferir os resultados dos testes, abra no navegador o a página Log.html
+6º Passo: Pronto, agora é só conferir os resultados dos testes, abra no navegador o a página Log.html
 
 
 
