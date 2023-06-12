@@ -1,6 +1,6 @@
-1º Passo: Clonar o projeto -> Branch: Master
+1º Passo: Clonar o projeto -> Branch: justa
 
-git clone
+git clone https://github.com/viniciusQuaresma2011/swag_labs.git
 
 2º Passo: Entrar na pasta do projeto
 
