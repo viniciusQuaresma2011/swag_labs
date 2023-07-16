@@ -12,7 +12,7 @@ cd swag_labs
 
 4º Passo: Se caso nao possua o Python instalado, execute o comando abaixo
 
-python3 -m pip install robotframework && pip install robotframework-requests && pip install robotframework-selenium2library
+python3 -m pip install robotframework && pip install robotframework-requests &&  pip install selenium==4.9.1 && pip install robotframework-selenium2library
 && pip install xvfbwrapper && pip install robotframework-xvfb && pip install certifi && pip install asn1crypto
 && pip install bcrypt && pip install robotframework-sshlibrary && pip install cryptography && pip install pyOpenSSL
 && pip install idna && pip install requests[security]
