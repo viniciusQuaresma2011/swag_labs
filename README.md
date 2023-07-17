@@ -14,7 +14,7 @@ docker build -t testando .
 
 4º Passo: Execute o comando para rodar o teste
 
-docker run testando
+docker run --user=nonroot -v ${PWD}\output:/output testando
 
 
 # swag_labs
