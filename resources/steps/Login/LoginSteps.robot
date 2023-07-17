@@ -16,7 +16,7 @@ ${mensagem_erro}             Epic sadface: Sorry, this user has been locked out.
 
 *** Keywords ***
 Dado que estou na pagina de Login do Swag Labs
-    Open Browser    ${URL}    Edge
+    Open Browser    ${URL}    Firefox
 
 E preencho o campo Username com "${email}"
     Input Text    ${input_username}    ${email}
@@ -35,7 +35,7 @@ Entao consigo entrar no sistema com sucesso!!!
 
 Logar rapido
     [Arguments]         ${username}     ${password}
-    Open Browser    ${URL}    Edge
+    Open Browser    ${URL}    Firefox
     Input Text    ${input_username}     ${username}
     Input Text    ${input_senha}        ${password}
     Click Element    ${botao_login}
