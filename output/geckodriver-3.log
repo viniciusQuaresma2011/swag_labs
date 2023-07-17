@@ -1,0 +1,17 @@
+1689608738745	geckodriver	INFO	Listening on 127.0.0.1:56719
+1689608739262	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "45501" "-no-remote" "-profile" "/tmp/rust_mozprofilevWIuyx"
+*** You are running in headless mode.
+[GFX1-]: glxtest: libpci missing
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL missing
+[GFX1-]: No GPUs detected via PCI
+1689608739891	Marionette	INFO	Marionette enabled
+1689608739902	Marionette	INFO	Listening on port 44353
+WebDriver BiDi listening on ws://localhost:45501
+1689608740155	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilevWIuyx/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:45501/devtools/browser/bedf0287-6c89-4f41-8d78-50c4741d6012
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.saucedemo.com"

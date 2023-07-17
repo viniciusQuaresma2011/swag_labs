@@ -5,7 +5,7 @@ Resource  ../../base/Base.robot
 
 
 ${verifica_titulo}    //*[@id="header_container"]/div[2]/span[1]
-${titulo}             PRODUCTS
+${titulo}             Products
 
 ${produto_escolhido}    //*[@id="item_4_title_link"]/div[1]
 
