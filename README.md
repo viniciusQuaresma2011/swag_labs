@@ -10,7 +10,7 @@ cd swag_labs
 
 3º Passo: Crie uma imagem docker
 
-docker build -t testando
+docker build -t testando .
 
 4º Passo: Execute o comando para rodar o teste
 
