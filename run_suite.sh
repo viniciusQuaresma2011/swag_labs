@@ -8,4 +8,4 @@ export DISPLAY=:99
 sleep 5
 
 # Executar os testes do Robot Framework usando o Firefox
-robot --variable BROWSER:firefox /app/tests/resources/data/Carrinho/Carrinho.robot
+robot --variable BROWSER:firefox /app/tests/resources/data/**/*.robot
