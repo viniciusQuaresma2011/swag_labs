@@ -15,3 +15,5 @@ docker build -t testando .
 4º Passo: Execute o comando para rodar o teste
 
 docker run --user=nonroot -v ${PWD}\output:/output testando
+
+5º Passo: acesse a pasta output e veja o resultado dos testes.
