@@ -1,25 +1,27 @@
-ATENÇÃO -> Projeto configurado para rodar em Container :D
+![Captura de tela_13-2-2024_132012_www saucedemo com](https://github.com/viniciusQuaresma2011/swag_labs/assets/85623269/f4c21482-736e-46bd-9f1a-d572161a5832)
 
-1º Passo: Clonar o projeto -> Branch: master
+<h1>Projeto de automação Web em um E-commerce de Produtos com Robot-Framework(Scripts) + Selenium + Gherkin(Cenários de Testes)</h1>
 
-git clone https://github.com/viniciusQuaresma2011/swag_labs.git
+> ATENÇÃO -> Projeto configurado para rodar em Container :D
 
-2º Passo: Entrar na pasta do projeto
+### 1º Passo: Clonar o projeto -> Branch: master
 
-cd swag_labs
++ git clone https://github.com/viniciusQuaresma2011/swag_labs.git
 
-3º Passo: Crie uma imagem docker
+### 2º Passo: Entrar na pasta do projeto
 
-docker build -t testando .
++ cd swag_labs
 
-4º Passo: Execute o comando para rodar o teste
+### 3º Passo: Crie uma imagem docker
 
-docker run --user=nonroot -v ${PWD}\output:/output testando
++ docker build -t testando .
 
-5º Passo: acesse a pasta output e veja o resultado dos testes.
+### 4º Passo: Execute o comando para rodar o teste
+
+ docker run --user=nonroot -v ${PWD}\output:/output testando
+
+### 5º Passo: acesse a pasta output e veja o resultado dos testes.
 
 
-# swag_labs
-Projeto de automação Web em um E-commerce de Produtos ,utilizando Robot Framework(Scripts) + Selenium + Gherkin(Cenários de Testes)
 
 
